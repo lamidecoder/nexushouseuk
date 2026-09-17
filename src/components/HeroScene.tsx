@@ -58,7 +58,7 @@ function NexusObject({
     // otherwise collide with it, then stays gone until the object's own
     // moment has passed rather than jarringly popping back.
     const fade = 1 - Math.min(1, Math.max(0, (t - 0.06) / 0.32));
-    const scale = THREE.MathUtils.lerp(0.55, 0.9, fade) * Math.min(1, viewport.width / 8);
+    const scale = THREE.MathUtils.lerp(0.75, 1.25, fade) * Math.min(1, viewport.width / 8);
 
     if (core.current) {
       core.current.rotation.x += delta * 0.12;
@@ -74,7 +74,7 @@ function NexusObject({
       group.current.rotation.x = THREE.MathUtils.lerp(group.current.rotation.x, targetTiltX, 0.04);
       group.current.rotation.y = THREE.MathUtils.lerp(group.current.rotation.y, targetTiltY, 0.04);
       group.current.scale.setScalar(scale);
-      group.current.position.x = Math.min(1.7, viewport.width * 0.22);
+      group.current.position.x = Math.min(2.1, viewport.width * 0.26);
       group.current.position.y = THREE.MathUtils.lerp(-0.1, 0.3, fade) - 0.1;
       group.current.visible = fade > 0.02;
     }
