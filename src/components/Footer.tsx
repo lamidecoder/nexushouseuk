@@ -41,47 +41,51 @@ function SocialIcon({ icon }: { icon: (typeof SOCIALS)[number]["icon"] }) {
   );
 }
 
+const TAGLINE_WORDS = ["Building what's next.", "Building what's next.", "Building what's next."];
+
 export function Footer() {
   const { market } = useMarket();
   const { t } = useLocale();
 
   return (
-    <footer id="contact-footer" className="border-t border-line bg-ink px-6 pb-8 pt-20 sm:px-10">
-      <div className="mx-auto max-w-content">
-        <FadeUp>
-          <h2 className="font-display text-fluid-xl font-medium leading-[0.95] tracking-tightest text-bone">
-            HAVE AN IDEA
-            <br />
-            WORTH BUILDING?
-          </h2>
-        </FadeUp>
+    <footer id="contact-footer" className="border-t border-line bg-ink pb-8 pt-20">
+      <div className="mx-auto max-w-content px-6 sm:px-10">
+        <div className="flex flex-col gap-8 sm:flex-row sm:gap-10">
+          <FadeUp delay={0.05} className="flex gap-3 sm:flex-col">
+            {SOCIALS.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={s.label}
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-bone/[0.06] text-bone/70 transition-colors duration-200 hover:bg-signal hover:text-ink"
+              >
+                <SocialIcon icon={s.icon} />
+              </a>
+            ))}
+          </FadeUp>
 
-        <FadeUp delay={0.1} className="mt-8 flex flex-wrap items-center gap-5">
-          <MagneticButton cursor="talk" className="inline-block">
-            <a
-              href={`mailto:${market.contactEmail}`}
-              className="inline-flex items-center gap-3 rounded-full bg-signal px-6 py-3 font-mono text-sm font-medium uppercase tracking-wide text-ink transition-transform duration-200 active:scale-95"
-            >
-              Start a project →
-            </a>
-          </MagneticButton>
-          <span className="font-mono text-xs uppercase tracking-wide text-bone/40">{market.contactEmail}</span>
-        </FadeUp>
+          <div className="flex-1 rounded-[32px] border border-line bg-ink-soft p-8 sm:p-12">
+            <FadeUp>
+              <h2 className="font-display text-fluid-lg font-medium leading-[0.98] tracking-tightest text-bone">
+                Have an idea worth building?
+              </h2>
+            </FadeUp>
 
-        <FadeUp delay={0.15} className="mt-10 flex gap-3">
-          {SOCIALS.map((s) => (
-            <a
-              key={s.label}
-              href={s.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={s.label}
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-bone/[0.06] text-bone/70 transition-colors duration-200 hover:bg-signal hover:text-ink"
-            >
-              <SocialIcon icon={s.icon} />
-            </a>
-          ))}
-        </FadeUp>
+            <FadeUp delay={0.1} className="mt-8 flex flex-wrap items-center gap-5">
+              <MagneticButton cursor="talk" className="inline-block">
+                <a
+                  href={`mailto:${market.contactEmail}`}
+                  className="inline-flex items-center gap-3 rounded-full bg-signal px-6 py-3 font-mono text-sm font-medium uppercase tracking-wide text-ink transition-transform duration-200 active:scale-95"
+                >
+                  Start a project →
+                </a>
+              </MagneticButton>
+              <span className="font-mono text-xs uppercase tracking-wide text-bone/40">{market.contactEmail}</span>
+            </FadeUp>
+          </div>
+        </div>
 
         <div className="mt-16 grid grid-cols-2 gap-10 border-t border-line pt-10 text-sm sm:grid-cols-4">
           <div className="col-span-2 sm:col-span-1">
@@ -100,8 +104,21 @@ export function Footer() {
             <FooterLink href="/legal">Legal &amp; Privacy</FooterLink>
           </FooterColumn>
 
-          <FooterColumn title="Region">
-            <div className="flex flex-col items-start gap-4">
+          <FooterColumn title="Get in touch">
+            <a href={`mailto:${market.contactEmail}`} className="text-bone/70 transition-colors hover:text-signal">
+              {market.contactEmail}
+            </a>
+            {market.showWhatsapp && market.whatsappNumber && (
+              <a
+                href={`https://wa.me/${market.whatsappNumber.replace(/\D/g, "")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-bone/70 transition-colors hover:text-signal"
+              >
+                WhatsApp
+              </a>
+            )}
+            <div className="mt-2 flex flex-col items-start gap-4">
               <CountrySelector />
               <LanguageSelector />
               <ThemeToggle className="-ml-1" />
@@ -116,6 +133,16 @@ export function Footer() {
               Legal &amp; Privacy ({market.legalFramework})
             </Link>
           </div>
+        </div>
+      </div>
+
+      <div className="relative mt-10 overflow-hidden border-t border-line py-6">
+        <div className="animate-marquee flex w-max whitespace-nowrap">
+          {[...TAGLINE_WORDS, ...TAGLINE_WORDS].map((word, i) => (
+            <span key={i} className="mx-6 font-display text-3xl font-medium tracking-tight text-bone/15 sm:text-5xl">
+              {word}
+            </span>
+          ))}
         </div>
       </div>
     </footer>
