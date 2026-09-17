@@ -4,6 +4,8 @@ import Link from "next/link";
 import { PROJECTS } from "@/lib/data/projects";
 import { ProjectVisual } from "./ProjectVisual";
 import { FadeUp } from "./RevealText";
+import { BlobFrame } from "./BlobFrame";
+import { TagChip } from "./TagChip";
 
 export function WorkIndex() {
   return (
@@ -16,10 +18,17 @@ export function WorkIndex() {
               data-cursor="view"
               className="group -mx-4 grid grid-cols-1 items-center gap-6 rounded-2xl px-4 py-10 transition-colors duration-300 hover:bg-bone/[0.03] sm:grid-cols-[auto_1fr_auto] sm:gap-10 sm:py-12"
             >
-              <ProjectVisual
-                project={project}
-                className="aspect-[4/3] w-full rounded-xl transition-transform duration-500 ease-out group-hover:scale-[1.03] sm:w-64 md:w-80"
-              />
+              <div className="relative w-full sm:w-64 md:w-80">
+                <BlobFrame notch="tr" className="aspect-[4/3] w-full transition-transform duration-500 ease-out group-hover:scale-[1.03]">
+                  <ProjectVisual project={project} className="h-full w-full" />
+                </BlobFrame>
+                <div className="absolute right-3 top-3 flex flex-wrap justify-end gap-1.5">
+                  {project.services.slice(0, 2).map((s) => (
+                    <TagChip key={s}>{s}</TagChip>
+                  ))}
+                  {project.services.length > 2 && <TagChip>+{project.services.length - 2}</TagChip>}
+                </div>
+              </div>
               <div>
                 <div className="flex items-baseline gap-4">
                   <span className="font-mono text-xs text-bone/40">{project.index}</span>
@@ -28,13 +37,7 @@ export function WorkIndex() {
                   </h2>
                 </div>
                 <p className="mt-3 max-w-md text-bone/60">{project.oneLiner}</p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {project.services.map((s) => (
-                    <span key={s} className="font-mono text-[10px] uppercase tracking-wide text-bone/40">
-                      {s}
-                    </span>
-                  ))}
-                </div>
+                <p className="mt-2 font-mono text-[10px] uppercase tracking-wide text-bone/40">{project.industry}</p>
               </div>
               <span className="hidden font-mono text-xs uppercase tracking-wide text-bone/40 transition-colors group-hover:text-signal sm:block">
                 View case study →

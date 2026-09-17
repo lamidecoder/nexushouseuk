@@ -5,6 +5,7 @@ import { Providers } from "@/components/Providers";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { PageTransition } from "@/components/PageTransition";
+import { BlobDefs } from "@/components/BlobDefs";
 import { THEME_INIT_SCRIPT } from "@/lib/theme/ThemeProvider";
 
 const display = Bricolage_Grotesque({
@@ -85,6 +86,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
         <div className="grain-overlay" aria-hidden />
+        <BlobDefs />
         <Providers>
           <Navigation />
           <main id="main-content">

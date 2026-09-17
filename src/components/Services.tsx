@@ -7,6 +7,7 @@ import { SERVICES } from "@/lib/data/services";
 import { useMarket } from "@/lib/market/MarketProvider";
 import { SectionLabel } from "./SectionLabel";
 import { FadeUp } from "./RevealText";
+import { TagChip } from "./TagChip";
 
 const HOMEPAGE_HIGHLIGHTS = ["01", "02", "03", "07", "08", "05"];
 
@@ -71,35 +72,30 @@ export function Services() {
             })}
           </ul>
 
-          <div className="relative hidden aspect-[4/3] overflow-hidden rounded-2xl border border-line bg-ink-soft lg:block">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={current.index}
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -16 }}
-                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                className="flex h-full flex-col justify-between p-10"
-              >
-                <span className="font-display text-[10rem] font-medium leading-none tracking-tightest text-bone/10">
-                  {current.index}
-                </span>
-                <div>
-                  <h3 className="font-display text-3xl font-medium tracking-tighter text-bone">{current.title}</h3>
-                  <p className="mt-3 max-w-sm text-bone/60">{current.description}</p>
-                  <div className="mt-6 flex flex-wrap gap-2">
-                    {current.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full border border-signal/30 px-3 py-1 font-mono text-[10px] uppercase tracking-wide text-signal"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+          <div className="relative hidden aspect-[4/3] overflow-hidden rounded-[32px] border border-line bg-ink-soft lg:block">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={current.index}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -16 }}
+                  transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                  className="flex h-full flex-col justify-between p-10"
+                >
+                  <span className="font-display text-[10rem] font-medium leading-none tracking-tightest text-bone/10">
+                    {current.index}
+                  </span>
+                  <div>
+                    <h3 className="font-display text-3xl font-medium tracking-tighter text-bone">{current.title}</h3>
+                    <p className="mt-3 max-w-sm text-bone/60">{current.description}</p>
+                    <div className="mt-6 flex flex-wrap gap-2">
+                      {current.tags.map((tag) => (
+                        <TagChip key={tag}>{tag}</TagChip>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            </AnimatePresence>
+                </motion.div>
+              </AnimatePresence>
           </div>
         </div>
 

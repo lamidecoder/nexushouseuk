@@ -3,6 +3,7 @@ import { Intro } from "@/components/Intro";
 import { Work } from "@/components/Work";
 import { Services } from "@/components/Services";
 import { Studio } from "@/components/Studio";
+import { SharingTheLove } from "@/components/SharingTheLove";
 import { Process } from "@/components/Process";
 import { Contact } from "@/components/Contact";
 
@@ -14,7 +15,8 @@ export default function HomePage() {
       <Work />
       <Services />
       <Studio />
-      <Process />
+      <SharingTheLove />
+      <Process sectionIndex="06" />
       <Contact />
     </>
   );

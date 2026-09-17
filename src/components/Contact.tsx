@@ -37,7 +37,7 @@ export function Contact() {
     <section id="contact" className="relative bg-ink px-6 py-28 sm:px-10 sm:py-36">
       <div className="mx-auto max-w-content">
         <FadeUp>
-          <SectionLabel index="06" title="Contact" />
+          <SectionLabel index="07" title="Contact" />
         </FadeUp>
         <FadeUp delay={0.05}>
           <h2 className="mt-6 font-display text-fluid-xl font-medium leading-[0.95] tracking-tightest text-bone">

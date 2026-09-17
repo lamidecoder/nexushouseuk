@@ -1,10 +1,12 @@
 "use client";
 
 import { useRef } from "react";
+import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useMarket } from "@/lib/market/MarketProvider";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 import { Hero3D } from "./Hero3D";
+import { MagneticButton } from "./MagneticButton";
 
 const CAPABILITIES = ["Websites", "Software", "Cloud", "Cybersecurity", "AI"];
 
@@ -35,9 +37,14 @@ export function Hero() {
       <div className="sticky top-0 flex h-screen flex-col overflow-hidden bg-ink px-6 pt-28 sm:px-10">
         <Hero3D scrollProgress={scrollYProgress} />
 
-        <motion.div style={{ opacity: kickerO }} className="relative z-10 flex items-center justify-between font-mono text-xs uppercase tracking-widest text-bone/50">
-          <span>{market.heroKicker}</span>
-          <span className="hidden sm:inline">NEXUSHOUSE</span>
+        <motion.div style={{ opacity: kickerO }} className="relative z-10 flex items-center justify-between">
+          <span className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-bone/60">
+            <span className="h-1.5 w-1.5 rounded-full bg-signal" aria-hidden />
+            Hiya, we&apos;re Nexushouse <span aria-hidden>👋</span>
+          </span>
+          <span className="hidden rounded-full bg-signal px-4 py-2.5 font-mono text-[11px] uppercase tracking-wide text-ink sm:block">
+            {market.heroKicker}
+          </span>
         </motion.div>
 
         <motion.div
@@ -68,16 +75,35 @@ export function Hero() {
           </h1>
         </motion.div>
 
-        <motion.div style={{ opacity: footO }} className="relative z-10 mb-10 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-          <p className="max-w-md text-balance text-sm text-bone/60 sm:text-base">{market.heroSub}</p>
-          <ul className="flex flex-wrap gap-x-4 gap-y-2 font-mono text-xs uppercase tracking-wide text-bone/40">
-            {CAPABILITIES.map((c, i) => (
-              <li key={c} className="flex items-center gap-4">
-                {c}
-                {i < CAPABILITIES.length - 1 && <span className="h-1 w-1 rounded-full bg-signal" />}
-              </li>
-            ))}
-          </ul>
+        <motion.div style={{ opacity: footO }} className="relative z-10 mb-10 flex flex-col gap-8">
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <p className="max-w-md text-balance text-sm text-bone/60 sm:text-base">{market.heroSub}</p>
+            <ul className="flex flex-wrap gap-x-4 gap-y-2 font-mono text-xs uppercase tracking-wide text-bone/40">
+              {CAPABILITIES.map((c, i) => (
+                <li key={c} className="flex items-center gap-4">
+                  {c}
+                  {i < CAPABILITIES.length - 1 && <span className="h-1 w-1 rounded-full bg-signal" />}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="flex flex-wrap items-center gap-4">
+            <MagneticButton cursor="explore">
+              <Link
+                href="/work"
+                className="inline-flex items-center gap-3 rounded-full bg-signal px-6 py-3 font-mono text-xs font-medium uppercase tracking-wide text-ink transition-transform duration-200 active:scale-95"
+              >
+                View our work →
+              </Link>
+            </MagneticButton>
+            <Link
+              href="/services"
+              data-cursor="explore"
+              className="font-mono text-xs uppercase tracking-wide text-bone/60 underline-offset-4 transition-colors hover:text-bone hover:underline"
+            >
+              See our services
+            </Link>
+          </div>
         </motion.div>
 
         <motion.div

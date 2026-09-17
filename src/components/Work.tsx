@@ -7,6 +7,8 @@ import { PROJECTS } from "@/lib/data/projects";
 import { ProjectVisual } from "./ProjectVisual";
 import { SectionLabel } from "./SectionLabel";
 import { FadeUp } from "./RevealText";
+import { BlobFrame } from "./BlobFrame";
+import { TagChip } from "./TagChip";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
 export function Work() {
@@ -46,26 +48,44 @@ export function Work() {
                   </span>
                   <ArrowIcon />
                 </Link>
-                <div className="block pb-6 lg:hidden">
-                  <ProjectVisual project={project} className="aspect-[4/3] w-full rounded-lg" />
+                <div className="relative block pb-6 lg:hidden">
+                  <BlobFrame notch="tr" className="aspect-[4/3] w-full">
+                    <ProjectVisual project={project} className="h-full w-full" />
+                  </BlobFrame>
+                  <div className="absolute right-4 top-4 flex flex-wrap justify-end gap-2">
+                    {project.services.slice(0, 2).map((s) => (
+                      <TagChip key={s}>{s}</TagChip>
+                    ))}
+                    {project.services.length > 2 && <TagChip>+{project.services.length - 2}</TagChip>}
+                  </div>
                 </div>
               </li>
             ))}
           </ul>
 
-          <div className="relative hidden aspect-[4/3] overflow-hidden rounded-2xl lg:block">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={PROJECTS[active].slug}
-                initial={{ opacity: 0, scale: 1.03 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.97 }}
-                transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                className="absolute inset-0"
-              >
-                <ProjectVisual project={PROJECTS[active]} className="h-full w-full" />
-              </motion.div>
-            </AnimatePresence>
+          <div className="relative hidden aspect-[4/3] lg:block">
+            <BlobFrame notch="tr" className="h-full w-full">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={PROJECTS[active].slug}
+                  initial={{ opacity: 0, scale: 1.03 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.97 }}
+                  transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                  className="absolute inset-0"
+                >
+                  <ProjectVisual project={PROJECTS[active]} className="h-full w-full" />
+                </motion.div>
+              </AnimatePresence>
+            </BlobFrame>
+            <div className="absolute right-4 top-4 flex flex-wrap justify-end gap-2">
+              {PROJECTS[active].services.slice(0, 2).map((s) => (
+                <TagChip key={s}>{s}</TagChip>
+              ))}
+              {PROJECTS[active].services.length > 2 && (
+                <TagChip>+{PROJECTS[active].services.length - 2}</TagChip>
+              )}
+            </div>
           </div>
         </div>
 
