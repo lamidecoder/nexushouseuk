@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Inter, IBM_Plex_Mono } from "next/font/google";
+import { Bricolage_Grotesque, Inter, IBM_Plex_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/Providers";
 import { Navigation } from "@/components/Navigation";
@@ -24,6 +24,16 @@ const mono = IBM_Plex_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
   variable: "--font-mono",
+  display: "swap",
+});
+
+// Used only for the Sophie Dallamore client wordmark (ClientLogos.tsx), to
+// approximate the elegant script style of their real logo.
+const script = Playfair_Display({
+  subsets: ["latin"],
+  style: ["italic"],
+  weight: ["500", "600"],
+  variable: "--font-script",
   display: "swap",
 });
 
@@ -70,7 +80,11 @@ const organizationJsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${display.variable} ${body.variable} ${mono.variable} ${script.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
       </head>

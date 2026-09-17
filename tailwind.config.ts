@@ -27,6 +27,7 @@ const config: Config = {
         display: ["var(--font-display)", "sans-serif"],
         body: ["var(--font-body)", "sans-serif"],
         mono: ["var(--font-mono)", "monospace"],
+        script: ["var(--font-script)", "serif"],
       },
       fontSize: {
         "fluid-hero": "clamp(3rem, 9vw, 10rem)",

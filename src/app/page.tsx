@@ -1,6 +1,7 @@
 import { Hero } from "@/components/Hero";
 import { Marquee } from "@/components/Marquee";
 import { WhoWeAre } from "@/components/WhoWeAre";
+import { ClientLogos } from "@/components/ClientLogos";
 import { Work } from "@/components/Work";
 import { Services } from "@/components/Services";
 import { Studio } from "@/components/Studio";
@@ -15,6 +16,7 @@ export default function HomePage() {
       <Hero />
       <Marquee />
       <WhoWeAre />
+      <ClientLogos />
       <Work />
       <Services />
       <Studio />
