@@ -22,12 +22,25 @@ export function Work() {
           </h2>
         </FadeUp>
 
-        <div className="mt-16 flex flex-col gap-20 sm:gap-28">
-          {featured.map((project, i) => (
-            <FadeUp key={project.slug} delay={i * 0.05}>
-              <ProjectCard project={project} />
-            </FadeUp>
-          ))}
+        <div className="mt-16 grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-x-10 lg:gap-y-20">
+          <div className="flex flex-col gap-16 lg:gap-20">
+            {featured
+              .filter((_, i) => i % 2 === 0)
+              .map((project, i) => (
+                <FadeUp key={project.slug} delay={i * 0.05}>
+                  <ProjectCard project={project} />
+                </FadeUp>
+              ))}
+          </div>
+          <div className="flex flex-col gap-16 lg:mt-24 lg:gap-20">
+            {featured
+              .filter((_, i) => i % 2 === 1)
+              .map((project, i) => (
+                <FadeUp key={project.slug} delay={i * 0.05 + 0.08}>
+                  <ProjectCard project={project} />
+                </FadeUp>
+              ))}
+          </div>
         </div>
 
         <FadeUp delay={0.1} className="mt-20 flex justify-center">
