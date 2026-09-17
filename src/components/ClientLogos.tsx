@@ -70,27 +70,31 @@ function LogoMark({ name }: { name: string }) {
   }
 }
 
+function ClientMark({ client }: { client: (typeof CLIENTS)[number] }) {
+  const mark = (
+    <span className="text-bone/50 opacity-80 transition-all duration-200 hover:text-bone hover:opacity-100">
+      <LogoMark name={client.name} />
+    </span>
+  );
+  return client.slug ? (
+    <Link href={`/work/${client.slug}`} data-cursor="view" className="mx-8 shrink-0 sm:mx-12">
+      {mark}
+    </Link>
+  ) : (
+    <span className="mx-8 shrink-0 sm:mx-12">{mark}</span>
+  );
+}
+
 export function ClientLogos() {
   return (
-    <section className="border-y border-line bg-ink px-6 py-14 sm:px-10">
-      <div className="mx-auto max-w-content">
-        <FadeUp className="flex flex-wrap items-center justify-center gap-x-14 gap-y-8 sm:justify-between">
-          {CLIENTS.map((client) => {
-            const mark = (
-              <span className="text-bone/50 opacity-80 transition-all duration-200 hover:text-bone hover:opacity-100">
-                <LogoMark name={client.name} />
-              </span>
-            );
-            return client.slug ? (
-              <Link key={client.name} href={`/work/${client.slug}`} data-cursor="view">
-                {mark}
-              </Link>
-            ) : (
-              <span key={client.name}>{mark}</span>
-            );
-          })}
-        </FadeUp>
-      </div>
+    <section className="relative overflow-hidden border-y border-line bg-ink py-14">
+      <FadeUp>
+        <div className="animate-marquee flex w-max items-center whitespace-nowrap">
+          {[...CLIENTS, ...CLIENTS].map((client, i) => (
+            <ClientMark key={`${client.name}-${i}`} client={client} />
+          ))}
+        </div>
+      </FadeUp>
     </section>
   );
 }
