@@ -37,7 +37,7 @@ export function Hero() {
 
         <motion.div style={{ opacity: kickerO }} className="relative z-10 flex items-center justify-between font-mono text-xs uppercase tracking-widest text-bone/50">
           <span>{market.heroKicker}</span>
-          <span className="hidden sm:inline">NEXUSHOUSE™</span>
+          <span className="hidden sm:inline">NEXUSHOUSE</span>
         </motion.div>
 
         <motion.div

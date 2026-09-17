@@ -50,6 +50,7 @@ export function Footer() {
             <FooterLink href="/work">{t.nav.work}</FooterLink>
             <FooterLink href="/#services">{t.nav.services}</FooterLink>
             <FooterLink href="/#studio">{t.nav.studio}</FooterLink>
+            <FooterLink href="/insights">Insights</FooterLink>
             <FooterLink href="/#contact">{t.nav.contact}</FooterLink>
           </FooterColumn>
 
