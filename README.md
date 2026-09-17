@@ -62,3 +62,6 @@ npm run lint
 - **Legal copy**: `/legal` has genuine, complete privacy policy and terms content matching what the site
   actually does, but it's still worth a lawyer's review before launch, standard practice for any real
   privacy policy and terms of use.
+- **Hero video**: `src/components/VideoBubble.tsx` points at `public/videos/intro.mp4`, which doesn't exist
+  yet. Drop a real video in at that path (any short intro/walkthrough clip) and the hero's video bubble
+  will play it in a lightbox; until then it opens to a loading spinner.

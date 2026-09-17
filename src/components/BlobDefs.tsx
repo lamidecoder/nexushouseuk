@@ -14,6 +14,9 @@ export function BlobDefs() {
         <clipPath id="notch-bl" clipPathUnits="objectBoundingBox">
           <path d="M 0.07 0 L 0.93 0 Q 1 0 1 0.07 L 1 0.93 Q 1 1 0.93 1 L 0.28 1 Q 0.22 1 0.22 0.94 L 0.22 0.84 Q 0.22 0.78 0.16 0.78 L 0.06 0.78 Q 0 0.78 0 0.72 L 0 0.07 Q 0 0 0.07 0 Z" />
         </clipPath>
+        <clipPath id="notch-br" clipPathUnits="objectBoundingBox">
+          <path d="M 0.07 1 L 0.75 1 Q 0.82 1 0.82 0.94 L 0.82 0.84 Q 0.82 0.78 0.88 0.78 L 0.94 0.78 Q 1 0.78 1 0.72 L 1 0.07 Q 1 0 0.93 0 L 0.07 0 Q 0 0 0 0.07 L 0 0.93 Q 0 1 0.07 1 Z" />
+        </clipPath>
       </defs>
     </svg>
   );
