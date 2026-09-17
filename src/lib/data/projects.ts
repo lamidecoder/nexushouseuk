@@ -3,6 +3,7 @@ export interface Project {
   index: string;
   name: string;
   oneLiner: string;
+  headline: string;
   industry: string;
   services: string[];
   description: string;
@@ -18,6 +19,7 @@ export const PROJECTS: Project[] = [
     index: "01",
     name: "Withcent Global",
     oneLiner: "Education / Digital Experience",
+    headline: "Presenting an education brand with clarity and credibility",
     industry: "Education",
     services: ["Digital Strategy", "UI/UX Design", "Web Development"],
     description:
@@ -34,6 +36,7 @@ export const PROJECTS: Project[] = [
     index: "02",
     name: "Bookam",
     oneLiner: "Booking Platform",
+    headline: "Making bookings feel like two taps, not a form",
     industry: "Bookings & Reservations",
     services: ["Product Design", "Web App Development"],
     description:
@@ -50,6 +53,7 @@ export const PROJECTS: Project[] = [
     index: "03",
     name: "Displyn",
     oneLiner: "Mobile Product",
+    headline: "A mobile product built for everyday clarity",
     industry: "Consumer Mobile",
     services: ["Product Design", "Mobile App Development"],
     description:
@@ -66,6 +70,7 @@ export const PROJECTS: Project[] = [
     index: "04",
     name: "DropOS",
     oneLiner: "AI / Commerce Platform",
+    headline: "AI-assisted commerce, without the added friction",
     industry: "AI & Commerce",
     services: ["Product Strategy", "AI Integration", "Platform Engineering"],
     description:
@@ -82,6 +87,7 @@ export const PROJECTS: Project[] = [
     index: "05",
     name: "FZShotit",
     oneLiner: "Photography / Creative Portfolio",
+    headline: "A quiet frame for photography that speaks for itself",
     industry: "Photography & Creative",
     services: ["Art Direction", "Portfolio Design", "Web Development"],
     description:

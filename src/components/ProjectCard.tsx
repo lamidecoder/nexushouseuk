@@ -27,26 +27,13 @@ export function ProjectCard({ project }: { project: Project }) {
         </div>
       </div>
       <div className="mt-6 flex flex-wrap items-center gap-3 font-mono text-xs uppercase tracking-wide text-bone/40">
-        <span>{project.index}</span>
-        <span className="h-1 w-1 rounded-full bg-bone/30" aria-hidden />
         <span>{project.industry}</span>
+        <span className="h-1 w-1 rounded-full bg-bone/30" aria-hidden />
+        <span>{project.name}</span>
       </div>
-      <h3 className="mt-3 font-display text-3xl font-medium tracking-tighter text-bone transition-colors group-hover:text-signal sm:text-5xl">
-        {project.name}
+      <h3 className="mt-3 max-w-2xl font-display text-3xl font-medium tracking-tighter text-bone transition-colors group-hover:text-signal sm:text-5xl">
+        {project.headline}
       </h3>
-      <p className="mt-2 max-w-lg text-bone/60">{project.oneLiner}</p>
-      <span className="mt-4 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wide text-bone/40 transition-colors group-hover:text-signal">
-        View case study
-        <ArrowIcon />
-      </span>
     </Link>
-  );
-}
-
-function ArrowIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="shrink-0 transition-transform group-hover:translate-x-1">
-      <path d="M5 19L19 5M19 5H8M19 5V16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
   );
 }
