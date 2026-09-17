@@ -9,7 +9,7 @@ const EU_TIMEZONE_PREFIXES = [
 const NG_TIMEZONES = new Set(["Africa/Lagos"]);
 
 /**
- * Best-effort, client-side market guess. No IP lookup service — this reads
+ * Best-effort, client-side market guess. No IP lookup service. This reads
  * the browser's timezone/locale, which is enough to pick a sensible default
  * and is always overridable via the country selector.
  */

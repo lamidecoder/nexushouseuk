@@ -9,7 +9,7 @@ import * as THREE from "three";
 
 type PointerRef = MutableRefObject<{ x: number; y: number }>;
 
-// The nexus object keeps Nexushouse's signature lime in both themes — like
+// The nexus object keeps Nexushouse's signature lime in both themes, like
 // the portfolio artwork, it's an illustration rather than flat UI text, so
 // it isn't bound by the darker light-mode accent text needs for contrast.
 // A metallic material in that dark olive would just render as a murky blob.
@@ -54,7 +54,7 @@ function NexusObject({
   useFrame((state, delta) => {
     const t = scrollProgress.get();
     // Fully visible only while the first, short headline line ("WE BUILD")
-    // is on screen — dissolves before the wider lines beneath it would
+    // is on screen. Dissolves before the wider lines beneath it would
     // otherwise collide with it, then stays gone until the object's own
     // moment has passed rather than jarringly popping back.
     const fade = 1 - Math.min(1, Math.max(0, (t - 0.06) / 0.32));

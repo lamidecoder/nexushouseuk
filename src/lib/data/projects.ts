@@ -39,7 +39,7 @@ export const PROJECTS: Project[] = [
     description:
       "Bookam is a booking platform designed to make scheduling and reservations straightforward for both operators and their customers.",
     challenge:
-      "Turn a multi-step booking flow — availability, selection, confirmation — into something that feels like two taps, not a form.",
+      "Turn a multi-step booking flow (availability, selection, confirmation) into something that feels like two taps, not a form.",
     approach:
       "A focused interface built around the booking flow itself, with the supporting screens kept deliberately out of the way.",
     palette: ["#0a0a0b", "#5865ff", "#f4f1ea"],
@@ -85,7 +85,7 @@ export const PROJECTS: Project[] = [
     industry: "Photography & Creative",
     services: ["Art Direction", "Portfolio Design", "Web Development"],
     description:
-      "FZShotit is a creative portfolio built to let photography lead — a quiet frame for work that speaks for itself.",
+      "FZShotit is a creative portfolio built to let photography lead: a quiet frame for work that speaks for itself.",
     challenge:
       "Build a portfolio structure that presents imagery at full strength without competing chrome or decoration.",
     approach:

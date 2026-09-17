@@ -62,7 +62,7 @@ export function Navigation() {
             <MagneticButton cursor="talk">
               <Link
                 href="/contact"
-                className="rounded-full bg-signal px-4 py-2 font-mono text-xs font-medium uppercase tracking-wide text-ink transition-transform"
+                className="rounded-full bg-signal px-4 py-2 font-mono text-xs font-medium uppercase tracking-wide text-ink transition-transform duration-200 active:scale-95"
               >
                 {t.nav.contact} →
               </Link>

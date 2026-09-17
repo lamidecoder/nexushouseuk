@@ -19,10 +19,12 @@ function supportsWebGL(): boolean {
 }
 
 /**
- * Renders the real WebGL nexus object where it's safe and worthwhile —
- * falls back to the flat SVG line motif for reduced-motion visitors, small
- * viewports where a 3D scene adds cost without much payoff, or browsers
- * without WebGL. Nobody sees a blank hero.
+ * Renders the real WebGL nexus object where it's safe and worthwhile, on
+ * top of the flat SVG line motif, which stays mounted underneath at all
+ * times. That SVG is also the whole picture for reduced-motion visitors,
+ * small viewports where a 3D scene adds cost without much payoff, or
+ * browsers without WebGL. Nothing ever flashes blank: not on first paint,
+ * not while the WebGL chunk is still downloading.
  */
 export function Hero3D({ scrollProgress }: { scrollProgress: MotionValue<number> }) {
   const { theme } = useTheme();
@@ -48,7 +50,7 @@ export function Hero3D({ scrollProgress }: { scrollProgress: MotionValue<number>
 
   // Tracked globally (not via the canvas element) so the object still
   // responds to pointer position even while the cursor is over UI on top
-  // of the canvas — the canvas itself is pointer-events:none.
+  // of the canvas; the canvas itself is pointer-events:none.
   useEffect(() => {
     if (capability !== "3d" && capability !== "3d-light") return;
     const handle = (e: PointerEvent) => {
@@ -61,15 +63,17 @@ export function Hero3D({ scrollProgress }: { scrollProgress: MotionValue<number>
     return () => window.removeEventListener("pointermove", handle);
   }, [capability]);
 
-  if (capability === "checking") return null;
-  if (capability === "fallback") return <NexusField />;
-
   return (
-    <HeroScene
-      theme={theme}
-      scrollProgress={scrollProgress}
-      pointerRef={pointerRef}
-      reduceQuality={capability === "3d-light"}
-    />
+    <>
+      <NexusField />
+      {(capability === "3d" || capability === "3d-light") && (
+        <HeroScene
+          theme={theme}
+          scrollProgress={scrollProgress}
+          pointerRef={pointerRef}
+          reduceQuality={capability === "3d-light"}
+        />
+      )}
+    </>
   );
 }

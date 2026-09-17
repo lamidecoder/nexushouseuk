@@ -28,8 +28,8 @@ function ServiceCard({ service, delay }: { service: Pick<Service, "index" | "tit
   );
 }
 
-// Grid columns are picked per list so full rows always divide evenly —
-// an uneven remainder leaves dangling empty cells that show through as a
+// Grid columns are picked per list so full rows always divide evenly.
+// An uneven remainder leaves dangling empty cells that show through as a
 // bare block of the container's gap-fill background.
 function columnsFor(count: number): string {
   if (count % 3 === 0) return "sm:grid-cols-2 lg:grid-cols-3";
@@ -61,7 +61,7 @@ export function ServicesPageContent() {
 
       {market.extraServices.length > 0 && (
         <section className="mt-24">
-          <SectionLabel index="03" title={`Local — ${market.label}`} />
+          <SectionLabel index="03" title={`Local: ${market.label}`} />
           <ServiceGrid services={market.extraServices} />
         </section>
       )}

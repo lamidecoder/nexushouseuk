@@ -4,7 +4,7 @@ import { WorkIndex } from "@/components/WorkIndex";
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Selected work from Nexushouse — websites, digital products, mobile apps and platforms across education, bookings, commerce and creative industries.",
+    "Selected work from Nexushouse: websites, digital products, mobile apps and platforms across education, bookings, commerce and creative industries.",
 };
 
 export default function WorkPage() {

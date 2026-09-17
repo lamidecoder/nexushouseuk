@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { PROJECTS } from "@/lib/data/projects";
+import { INSIGHTS } from "@/lib/data/insights";
 
 const SITE_URL = "https://nexushouse.com";
 
@@ -14,5 +15,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
   }));
 
-  return [...staticRoutes, ...projectRoutes];
+  const insightRoutes = INSIGHTS.map((i) => ({
+    url: `${SITE_URL}/insights/${i.slug}`,
+    lastModified: new Date(),
+  }));
+
+  return [...staticRoutes, ...projectRoutes, ...insightRoutes];
 }

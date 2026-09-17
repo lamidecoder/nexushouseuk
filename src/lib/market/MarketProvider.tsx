@@ -25,7 +25,7 @@ export function MarketProvider({ children }: { children: React.ReactNode }) {
     try {
       stored = window.localStorage.getItem(STORAGE_KEY);
     } catch {
-      // localStorage unavailable (private mode, blocked) — fall back to detection
+      // localStorage unavailable (private mode, blocked): fall back to detection
     }
 
     // Market detection reads localStorage/timezone/locale, all of which are

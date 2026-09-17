@@ -14,11 +14,11 @@ export function WorkIndex() {
             <Link
               href={`/work/${project.slug}`}
               data-cursor="view"
-              className="group grid grid-cols-1 items-center gap-6 py-10 sm:grid-cols-[auto_1fr_auto] sm:gap-10 sm:py-12"
+              className="group -mx-4 grid grid-cols-1 items-center gap-6 rounded-2xl px-4 py-10 transition-colors duration-300 hover:bg-bone/[0.03] sm:grid-cols-[auto_1fr_auto] sm:gap-10 sm:py-12"
             >
               <ProjectVisual
                 project={project}
-                className="aspect-[4/3] w-full rounded-xl sm:w-64 md:w-80"
+                className="aspect-[4/3] w-full rounded-xl transition-transform duration-500 ease-out group-hover:scale-[1.03] sm:w-64 md:w-80"
               />
               <div>
                 <div className="flex items-baseline gap-4">

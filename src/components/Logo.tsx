@@ -1,6 +1,6 @@
 /**
  * Typographic placeholder wordmark. Swap for the real Nexushouse logo file
- * by replacing this component's contents — nav, footer and loader all
+ * by replacing this component's contents. Nav, footer and loader all
  * consume it from here so a real asset only needs to be wired in once.
  */
 export function Logo({ className = "" }: { className?: string }) {

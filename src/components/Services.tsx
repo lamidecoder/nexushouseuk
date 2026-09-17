@@ -107,7 +107,7 @@ export function Services() {
           <Link
             href="/services"
             data-cursor="explore"
-            className="inline-flex items-center gap-3 rounded-full border border-bone/20 px-6 py-3 font-mono text-xs uppercase tracking-wide text-bone transition-colors hover:border-signal hover:text-signal"
+            className="inline-flex items-center gap-3 rounded-full border border-bone/20 px-6 py-3 font-mono text-xs uppercase tracking-wide text-bone transition-all duration-200 hover:border-signal hover:text-signal active:scale-95"
           >
             View all services →
           </Link>

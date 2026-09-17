@@ -4,7 +4,7 @@ import { ServicesPageContent } from "@/components/ServicesPageContent";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Digital products and the IT infrastructure that runs them — websites, software, mobile apps, AI, cloud, cybersecurity, IT support and networking.",
+    "Digital products and the IT infrastructure that runs them: websites, software, mobile apps, AI, cloud, cybersecurity, IT support and networking.",
 };
 
 export default function ServicesPage() {

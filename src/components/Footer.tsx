@@ -35,7 +35,7 @@ export function Footer() {
           <MagneticButton cursor="talk" className="inline-block">
             <a
               href={`mailto:${market.contactEmail}`}
-              className="inline-flex items-center gap-3 rounded-full border border-bone/30 px-6 py-3 font-mono text-sm uppercase tracking-wide text-bone transition-colors hover:border-signal hover:text-signal"
+              className="inline-flex items-center gap-3 rounded-full border border-bone/30 px-6 py-3 font-mono text-sm uppercase tracking-wide text-bone transition-all duration-200 hover:border-signal hover:text-signal active:scale-95"
             >
               {market.contactEmail} →
             </a>

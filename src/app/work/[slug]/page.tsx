@@ -22,13 +22,13 @@ export async function generateMetadata({
     title: project.name,
     description: project.description,
     openGraph: {
-      title: `${project.name} — Nexushouse`,
+      title: `${project.name} | Nexushouse`,
       description: project.description,
       type: "article",
     },
     twitter: {
       card: "summary",
-      title: `${project.name} — Nexushouse`,
+      title: `${project.name} | Nexushouse`,
       description: project.description,
     },
   };

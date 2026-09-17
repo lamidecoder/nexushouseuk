@@ -3,7 +3,7 @@
 /**
  * Subtle backdrop motif for the hero: a handful of connecting lines that
  * nod to the "nexus" concept without literalising it. Pure SVG/CSS, no
- * WebGL — the effect doesn't need it.
+ * WebGL; the effect doesn't need it.
  */
 export function NexusField() {
   return (

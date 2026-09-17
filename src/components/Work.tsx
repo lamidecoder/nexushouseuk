@@ -33,7 +33,7 @@ export function Work() {
                   href={`/work/${project.slug}`}
                   data-cursor="view"
                   onMouseEnter={() => setActive(i)}
-                  className="group flex items-center justify-between gap-6 py-6 sm:py-8"
+                  className="group -mx-4 flex items-center justify-between gap-6 rounded-xl px-4 py-6 transition-colors duration-300 hover:bg-bone/[0.03] sm:py-8"
                 >
                   <div className="flex items-baseline gap-5 sm:gap-8">
                     <span className="font-mono text-xs text-bone/40">{project.index}</span>
@@ -73,7 +73,7 @@ export function Work() {
           <Link
             href="/work"
             data-cursor="explore"
-            className="inline-flex items-center gap-3 rounded-full border border-bone/20 px-6 py-3 font-mono text-xs uppercase tracking-wide text-bone transition-colors hover:border-signal hover:text-signal"
+            className="inline-flex items-center gap-3 rounded-full border border-bone/20 px-6 py-3 font-mono text-xs uppercase tracking-wide text-bone transition-all duration-200 hover:border-signal hover:text-signal active:scale-95"
           >
             View all work →
           </Link>

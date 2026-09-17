@@ -3,7 +3,7 @@ import { Contact } from "@/components/Contact";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Tell Nexushouse what you're building — websites, apps, software, AI or IT support.",
+  description: "Tell Nexushouse what you're building: websites, apps, software, AI or IT support.",
 };
 
 export default function ContactPage() {

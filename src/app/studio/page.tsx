@@ -5,11 +5,19 @@ import { Process } from "@/components/Process";
 import { FadeUp } from "@/components/RevealText";
 import { SectionLabel } from "@/components/SectionLabel";
 import { MagneticButton } from "@/components/MagneticButton";
+import { DisciplineIcon } from "@/components/DisciplineIcon";
+
+const DISCIPLINES = [
+  { glyph: "design" as const, title: "Design", body: "Interface, brand and product design, shaped around real usage." },
+  { glyph: "engineering" as const, title: "Engineering", body: "Frontend, backend and mobile, built to last past launch day." },
+  { glyph: "strategy" as const, title: "Strategy", body: "The thinking that decides what to build before anyone designs it." },
+  { glyph: "it" as const, title: "IT & Security", body: "Cloud, infrastructure and the ongoing support that keeps it all up." },
+];
 
 export const metadata: Metadata = {
   title: "Studio",
   description:
-    "Nexushouse is a team of designers, engineers, strategists and IT professionals — how we work, and what we believe about building things properly.",
+    "Nexushouse is a team of designers, engineers, strategists and IT professionals. How we work, and what we believe about building things properly.",
 };
 
 export default function StudioPage() {
@@ -25,7 +33,7 @@ export default function StudioPage() {
         <p className="mt-6 max-w-xl text-bone/60">
           Nexushouse is a team of designers, engineers, strategists and IT professionals built
           around one idea: the product and the infrastructure it runs on are one job, not two. We
-          stay close to the work, end to end — from the first sketch to the servers it runs on.
+          stay close to the work, end to end, from the first sketch to the servers it runs on.
         </p>
 
         <section className="mt-24">
@@ -42,9 +50,30 @@ export default function StudioPage() {
             ))}
           </div>
         </section>
+
+        <section className="mt-24">
+          <SectionLabel index="02" title="Who does the work" />
+          <p className="mt-6 max-w-lg text-bone/60">
+            No outsourced handoffs and no anonymous contractor pool. Four disciplines, one team,
+            working on your project together.
+          </p>
+          <div className="mt-10 grid gap-10 border-t border-line pt-10 sm:grid-cols-2 lg:grid-cols-4">
+            {DISCIPLINES.map((d, i) => (
+              <FadeUp key={d.title} delay={i * 0.06} className="flex flex-col items-start gap-4">
+                <span className="text-bone/70">
+                  <DisciplineIcon glyph={d.glyph} />
+                </span>
+                <div>
+                  <h3 className="font-display text-lg font-medium tracking-tighter text-bone">{d.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-bone/60">{d.body}</p>
+                </div>
+              </FadeUp>
+            ))}
+          </div>
+        </section>
       </div>
 
-      <Process sectionIndex="02" />
+      <Process sectionIndex="03" />
 
       <div className="mx-auto max-w-content px-6 pb-28 sm:px-10">
         <FadeUp className="flex flex-col items-start gap-6 border-t border-line pt-14 sm:flex-row sm:items-center sm:justify-between">
@@ -54,7 +83,7 @@ export default function StudioPage() {
           <MagneticButton cursor="talk">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-3 rounded-full bg-signal px-6 py-3 font-mono text-xs font-medium uppercase tracking-wide text-ink"
+              className="inline-flex items-center gap-3 rounded-full bg-signal px-6 py-3 font-mono text-xs font-medium uppercase tracking-wide text-ink transition-transform duration-200 active:scale-95"
             >
               Get in touch →
             </Link>

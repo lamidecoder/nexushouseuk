@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const TEXT =
-  "Nexus — noun — a connection, a point where separate things meet and become one system. Nexushouse sits at that point: between strategy and design, between design and engineering, between an idea and the product it becomes.";
+  "Nexus, noun: a connection, a point where separate things meet and become one system. Nexushouse sits at that point, between strategy and design, between design and engineering, between an idea and the product it becomes.";
 
 export function Intro() {
   const ref = useRef<HTMLDivElement>(null);

@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 /**
  * Stub endpoint: validates the payload and returns success. No email/CRM
- * provider is wired up yet — plug in Resend/SendGrid/HubSpot etc. here
+ * provider is wired up yet. Plug in Resend/SendGrid/HubSpot etc. here
  * before launch. Deliberately not fabricating a "sent" integration.
  */
 export async function POST(request: Request) {

@@ -52,7 +52,7 @@ export function useTheme() {
   return ctx;
 }
 
-/** Inlined into <head> via layout.tsx — must stay a plain string, no imports. */
+/** Inlined into <head> via layout.tsx; must stay a plain string, no imports. */
 export const THEME_INIT_SCRIPT = `
 (function(){
   try {

@@ -59,7 +59,7 @@ export function Contact() {
                     type="button"
                     aria-pressed={projectType === type}
                     onClick={() => setProjectType(type)}
-                    className={`rounded-full border px-4 py-2 text-sm transition-colors ${
+                    className={`rounded-full border px-4 py-2 text-sm transition-all duration-150 active:scale-95 ${
                       projectType === type
                         ? "border-signal bg-signal text-ink"
                         : "border-bone/20 text-bone/70 hover:border-bone/50"
@@ -106,7 +106,7 @@ export function Contact() {
                 <button
                   type="submit"
                   disabled={status === "submitting"}
-                  className="rounded-full bg-signal px-8 py-4 font-mono text-sm font-medium uppercase tracking-wide text-ink transition-opacity disabled:opacity-50"
+                  className="rounded-full bg-signal px-8 py-4 font-mono text-sm font-medium uppercase tracking-wide text-ink transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:active:scale-100"
                 >
                   {status === "submitting" ? "Sending…" : "Let's talk →"}
                 </button>
@@ -123,10 +123,10 @@ export function Contact() {
                 </a>
               )}
 
-              {status === "success" && <p className="text-sm text-signal">Thanks — we&apos;ll be in touch shortly.</p>}
+              {status === "success" && <p className="text-sm text-signal">Thanks. We&apos;ll be in touch shortly.</p>}
               {status === "error" && (
                 <p className="text-sm text-bone/60">
-                  Something went wrong — email us directly at {market.contactEmail}.
+                  Something went wrong. Email us directly at {market.contactEmail}.
                 </p>
               )}
             </div>

@@ -16,7 +16,7 @@ const LocaleContext = createContext<LocaleContextValue | null>(null);
 /**
  * UI chrome (nav, CTAs, labels) is translated for en/fr/es/de. Long-form
  * editorial copy (hero statement, studio philosophy, case studies) stays in
- * English across locales for now — machine-translating brand copywriting at
+ * English across locales for now. Machine-translating brand copywriting at
  * scale risks tone/accuracy issues the brief explicitly warns against.
  */
 export function LocaleProvider({ children }: { children: React.ReactNode }) {

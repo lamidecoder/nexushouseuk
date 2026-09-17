@@ -31,13 +31,13 @@ const SITE_URL = "https://nexushouse.com";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Nexushouse — Digital, Software & IT Solutions",
-    template: "%s — Nexushouse",
+    default: "Nexushouse | Digital, Software & IT Solutions",
+    template: "%s | Nexushouse",
   },
   description:
-    "Nexushouse is a team of designers, engineers and IT professionals connecting strategy, design and technology — websites, digital products, mobile apps, software, AI, cloud infrastructure, cybersecurity and IT support.",
+    "Nexushouse is a team of designers, engineers and IT professionals connecting strategy, design and technology. Websites, digital products, mobile apps, software, AI, cloud infrastructure, cybersecurity and IT support.",
   openGraph: {
-    title: "Nexushouse — Digital, Software & IT Solutions",
+    title: "Nexushouse | Digital, Software & IT Solutions",
     description:
       "Strategy × Design × Technology × People. Nexushouse builds digital products and runs the IT infrastructure underneath them.",
     url: SITE_URL,
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nexushouse — Digital, Software & IT Solutions",
+    title: "Nexushouse | Digital, Software & IT Solutions",
     description: "Strategy × Design × Technology × People.",
   },
   robots: { index: true, follow: true },
@@ -59,7 +59,7 @@ const organizationJsonLd = {
   name: "Nexushouse",
   url: SITE_URL,
   description:
-    "Nexushouse is a team of designers, engineers and IT professionals connecting strategy, design and technology — digital products and the IT infrastructure that runs them.",
+    "Nexushouse is a team of designers, engineers and IT professionals connecting strategy, design and technology: digital products and the IT infrastructure that runs them.",
   sameAs: [
     "https://instagram.com/nexushouse",
     "https://linkedin.com/company/nexushouse",
@@ -84,6 +84,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Skip to content
         </a>
+        <div className="grain-overlay" aria-hidden />
         <Providers>
           <Navigation />
           <main id="main-content">
