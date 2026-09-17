@@ -34,21 +34,21 @@ export const MARKETS: Record<MarketId, MarketConfig> = {
     showRegistrationServices: true,
     contactEmail: "hello@nexushouse.com",
     whatsappNumber: "+234 000 000 0000",
-    heroKicker: "Digital agency — Lagos & remote",
+    heroKicker: "Digital & IT solutions — Lagos & remote",
     heroLines: ["WE BUILD", "DIGITAL THINGS", "WORTH REMEMBERING"],
     heroSub:
-      "Nexushouse designs and engineers websites, products and software for Nigerian and international businesses — and, where useful, handles the CAC registration and compliance behind them.",
+      "Nexushouse is a team of designers, engineers and IT professionals building websites, software, cloud infrastructure and secure systems for Nigerian and international businesses — with CAC registration and compliance handled alongside, where useful.",
     servicesIntro:
-      "Strategy, design and engineering — with business registration and compliance available as a local layer for Nigerian founders.",
+      "Digital products, cloud, cybersecurity and IT support — with business registration and compliance available as a local layer for Nigerian founders.",
     extraServices: [
       {
-        index: "07",
+        index: "11",
         title: "Business Registration",
         description: "CAC registration, business names and company incorporation.",
         tags: ["CAC", "Business Name", "LTD"],
       },
       {
-        index: "08",
+        index: "12",
         title: "Compliance Documentation",
         description: "NDPR-aligned documentation and business compliance paperwork.",
         tags: ["NDPR", "Compliance"],
@@ -66,12 +66,12 @@ export const MARKETS: Record<MarketId, MarketConfig> = {
     showWhatsapp: false,
     showRegistrationServices: false,
     contactEmail: "hello@nexushouse.com",
-    heroKicker: "Digital product studio — UK & remote",
+    heroKicker: "Digital & IT solutions studio — UK & remote",
     heroLines: ["WE BUILD", "DIGITAL THINGS", "WORTH REMEMBERING"],
     heroSub:
-      "Nexushouse partners with UK startups and SMEs to design and engineer websites, products and software that hold up under real use.",
+      "Nexushouse is a team of designers, engineers and IT professionals partnering with UK startups and SMEs — websites and products, plus the cloud, security and IT support underneath them.",
     servicesIntro:
-      "A single studio for strategy, design and engineering — from first sketch to shipped product.",
+      "One team for digital product work and the IT infrastructure it runs on — design, engineering, cloud and cybersecurity together.",
     extraServices: [],
     contactHeadline: "HAVE AN IDEA?",
     contactSub: "Tell us what you're building. We'll reply within one working day.",
@@ -85,12 +85,12 @@ export const MARKETS: Record<MarketId, MarketConfig> = {
     showWhatsapp: false,
     showRegistrationServices: false,
     contactEmail: "hello@nexushouse.com",
-    heroKicker: "Digital product studio — Europe & remote",
+    heroKicker: "Digital & IT solutions studio — Europe & remote",
     heroLines: ["WE BUILD", "DIGITAL THINGS", "WORTH REMEMBERING"],
     heroSub:
-      "Nexushouse partners with European startups and scale-ups to design and engineer digital products that hold up under real use.",
+      "Nexushouse is a team of designers, engineers and IT professionals partnering with European startups and scale-ups — websites and products, plus the cloud, security and IT support underneath them.",
     servicesIntro:
-      "A single studio for strategy, design and engineering — from first sketch to shipped product.",
+      "One team for digital product work and the IT infrastructure it runs on — design, engineering, cloud and cybersecurity together.",
     extraServices: [],
     contactHeadline: "HAVE AN IDEA?",
     contactSub: "Tell us what you're building. We'll reply within one working day.",
@@ -104,12 +104,12 @@ export const MARKETS: Record<MarketId, MarketConfig> = {
     showWhatsapp: false,
     showRegistrationServices: false,
     contactEmail: "hello@nexushouse.com",
-    heroKicker: "Digital agency & product studio",
+    heroKicker: "A digital & IT solutions company",
     heroLines: ["WE BUILD", "DIGITAL THINGS", "WORTH REMEMBERING"],
     heroSub:
-      "Nexushouse is a digital agency connecting strategy, design and technology — building websites, products and software for ambitious teams anywhere.",
+      "Nexushouse is a team of designers, engineers and IT professionals connecting strategy, design and technology — websites, software and AI products, plus the cloud, security and IT support underneath them.",
     servicesIntro:
-      "A single studio for strategy, design and engineering — from first sketch to shipped product.",
+      "One team for digital product work and the IT infrastructure it runs on — design, engineering, cloud and cybersecurity together.",
     extraServices: [],
     contactHeadline: "HAVE AN IDEA?",
     contactSub: "Tell us what you're building. We'll reply within one working day.",

@@ -5,6 +5,7 @@ import { Providers } from "@/components/Providers";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { PageTransition } from "@/components/PageTransition";
+import { THEME_INIT_SCRIPT } from "@/lib/theme/ThemeProvider";
 
 const display = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -30,22 +31,22 @@ const SITE_URL = "https://nexushouse.com";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Nexushouse — Digital Agency & Product Studio",
+    default: "Nexushouse — Digital, Software & IT Solutions",
     template: "%s — Nexushouse",
   },
   description:
-    "Nexushouse is a digital agency and product studio connecting strategy, design and technology — building websites, digital products, mobile apps, software and AI products.",
+    "Nexushouse is a team of designers, engineers and IT professionals connecting strategy, design and technology — websites, digital products, mobile apps, software, AI, cloud infrastructure, cybersecurity and IT support.",
   openGraph: {
-    title: "Nexushouse — Digital Agency & Product Studio",
+    title: "Nexushouse — Digital, Software & IT Solutions",
     description:
-      "Strategy × Design × Technology × People. Nexushouse builds websites, digital products, mobile apps, software and AI products.",
+      "Strategy × Design × Technology × People. Nexushouse builds digital products and runs the IT infrastructure underneath them.",
     url: SITE_URL,
     siteName: "Nexushouse",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nexushouse — Digital Agency & Product Studio",
+    title: "Nexushouse — Digital, Software & IT Solutions",
     description: "Strategy × Design × Technology × People.",
   },
   robots: { index: true, follow: true },
@@ -58,7 +59,7 @@ const organizationJsonLd = {
   name: "Nexushouse",
   url: SITE_URL,
   description:
-    "Nexushouse is a digital agency and product studio connecting strategy, design and technology.",
+    "Nexushouse is a team of designers, engineers and IT professionals connecting strategy, design and technology — digital products and the IT infrastructure that runs them.",
   sameAs: [
     "https://instagram.com/nexushouse",
     "https://linkedin.com/company/nexushouse",
@@ -68,7 +69,10 @@ const organizationJsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
+    <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+      </head>
       <body className="font-body antialiased">
         <script
           type="application/ld+json"

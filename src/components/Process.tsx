@@ -6,7 +6,7 @@ import { PROCESS } from "@/lib/data/process";
 import { SectionLabel } from "./SectionLabel";
 import { FadeUp } from "./RevealText";
 
-export function Process() {
+export function Process({ sectionIndex = "05" }: { sectionIndex?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -17,7 +17,7 @@ export function Process() {
     <section className="relative bg-ink px-6 py-28 sm:px-10 sm:py-36">
       <div className="mx-auto max-w-content">
         <FadeUp>
-          <SectionLabel index="05" title="Process" />
+          <SectionLabel index={sectionIndex} title="Process" />
         </FadeUp>
         <FadeUp delay={0.05}>
           <h2 className="mt-6 max-w-2xl font-display text-fluid-xl font-medium leading-[0.98] tracking-tightest text-bone">

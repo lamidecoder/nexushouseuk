@@ -108,7 +108,7 @@ export function Contact() {
                   disabled={status === "submitting"}
                   className="rounded-full bg-signal px-8 py-4 font-mono text-sm font-medium uppercase tracking-wide text-ink transition-opacity disabled:opacity-50"
                 >
-                  {status === "submitting" ? "Sending…" : "Let&apos;s talk →"}
+                  {status === "submitting" ? "Sending…" : "Let's talk →"}
                 </button>
               </MagneticButton>
 

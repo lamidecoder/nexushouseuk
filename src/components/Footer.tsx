@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Logo } from "./Logo";
 import { CountrySelector } from "./CountrySelector";
 import { LanguageSelector } from "./LanguageSelector";
+import { ThemeToggle } from "./ThemeToggle";
 import { useMarket } from "@/lib/market/MarketProvider";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 import { FadeUp } from "./RevealText";
@@ -48,10 +49,10 @@ export function Footer() {
 
           <FooterColumn title="Menu">
             <FooterLink href="/work">{t.nav.work}</FooterLink>
-            <FooterLink href="/#services">{t.nav.services}</FooterLink>
-            <FooterLink href="/#studio">{t.nav.studio}</FooterLink>
+            <FooterLink href="/services">{t.nav.services}</FooterLink>
+            <FooterLink href="/studio">{t.nav.studio}</FooterLink>
             <FooterLink href="/insights">Insights</FooterLink>
-            <FooterLink href="/#contact">{t.nav.contact}</FooterLink>
+            <FooterLink href="/contact">{t.nav.contact}</FooterLink>
           </FooterColumn>
 
           <FooterColumn title="Connect">
@@ -66,6 +67,7 @@ export function Footer() {
             <div className="flex flex-col items-start gap-4">
               <CountrySelector />
               <LanguageSelector />
+              <ThemeToggle className="-ml-1" />
             </div>
           </FooterColumn>
         </div>

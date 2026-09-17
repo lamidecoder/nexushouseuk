@@ -15,9 +15,9 @@ export function NexusField() {
     >
       <defs>
         <linearGradient id="nexus-line" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#d6ff3f" stopOpacity="0" />
-          <stop offset="50%" stopColor="#d6ff3f" stopOpacity="0.6" />
-          <stop offset="100%" stopColor="#d6ff3f" stopOpacity="0" />
+          <stop offset="0%" style={{ stopColor: "rgb(var(--color-accent))" }} stopOpacity="0" />
+          <stop offset="50%" style={{ stopColor: "rgb(var(--color-accent))" }} stopOpacity="0.6" />
+          <stop offset="100%" style={{ stopColor: "rgb(var(--color-accent))" }} stopOpacity="0" />
         </linearGradient>
       </defs>
       {[
@@ -42,7 +42,14 @@ export function NexusField() {
         [700, 400],
         [950, 460],
       ].map(([cx, cy]) => (
-        <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r="3" fill="#d6ff3f" fillOpacity="0.7" />
+        <circle
+          key={`${cx}-${cy}`}
+          cx={cx}
+          cy={cy}
+          r="3"
+          style={{ fill: "rgb(var(--color-accent))" }}
+          fillOpacity="0.7"
+        />
       ))}
       <style>{`
         .nexus-draw {

@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 import { LOCALES } from "@/lib/i18n/dictionaries";
 
-export function LanguageSelector({ variant = "light" }: { variant?: "light" | "dark" }) {
+export function LanguageSelector() {
   const { locale, setLocale, t } = useLocale();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -18,8 +18,6 @@ export function LanguageSelector({ variant = "light" }: { variant?: "light" | "d
     return () => document.removeEventListener("mousedown", onClick);
   }, []);
 
-  const color = variant === "light" ? "text-bone" : "text-ink";
-
   return (
     <div className="relative" ref={ref}>
       <button
@@ -28,7 +26,7 @@ export function LanguageSelector({ variant = "light" }: { variant?: "light" | "d
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-label={t.language}
-        className={`font-mono text-xs uppercase tracking-wide ${color} opacity-70 transition-opacity hover:opacity-100`}
+        className="font-mono text-xs uppercase tracking-wide text-bone opacity-70 transition-opacity hover:opacity-100"
       >
         {locale.toUpperCase()}
       </button>
@@ -52,7 +50,7 @@ export function LanguageSelector({ variant = "light" }: { variant?: "light" | "d
                     setLocale(l.id);
                     setOpen(false);
                   }}
-                  className={`block w-full rounded-md px-2 py-1.5 text-left text-sm transition-colors hover:bg-white/5 ${
+                  className={`block w-full rounded-md px-2 py-1.5 text-left text-sm transition-colors hover:bg-bone/10 ${
                     l.id === locale ? "text-signal" : "text-bone"
                   }`}
                 >

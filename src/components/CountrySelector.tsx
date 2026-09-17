@@ -6,7 +6,7 @@ import { useMarket } from "@/lib/market/MarketProvider";
 import { MARKET_LIST } from "@/lib/market/config";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
-export function CountrySelector({ variant = "light" }: { variant?: "light" | "dark" }) {
+export function CountrySelector() {
   const { market, setMarket } = useMarket();
   const { t } = useLocale();
   const [open, setOpen] = useState(false);
@@ -20,8 +20,6 @@ export function CountrySelector({ variant = "light" }: { variant?: "light" | "da
     return () => document.removeEventListener("mousedown", onClick);
   }, []);
 
-  const color = variant === "light" ? "text-bone" : "text-ink";
-
   return (
     <div className="relative" ref={ref}>
       <button
@@ -30,7 +28,7 @@ export function CountrySelector({ variant = "light" }: { variant?: "light" | "da
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-label={t.yourExperience}
-        className={`flex items-center gap-2 font-mono text-xs uppercase tracking-wide ${color} opacity-70 transition-opacity hover:opacity-100`}
+        className="flex items-center gap-2 font-mono text-xs uppercase tracking-wide text-bone opacity-70 transition-opacity hover:opacity-100"
       >
         <span>{market.flag}</span>
         <span>{market.label}</span>
@@ -58,7 +56,7 @@ export function CountrySelector({ variant = "light" }: { variant?: "light" | "da
                     setMarket(m.id);
                     setOpen(false);
                   }}
-                  className={`flex w-full items-center gap-2 rounded-md px-2 py-2 text-left text-sm transition-colors hover:bg-white/5 ${
+                  className={`flex w-full items-center gap-2 rounded-md px-2 py-2 text-left text-sm transition-colors hover:bg-bone/10 ${
                     m.id === market.id ? "text-signal" : "text-bone"
                   }`}
                 >

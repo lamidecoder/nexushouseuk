@@ -6,13 +6,14 @@ import { motion, useMotionValueEvent, useScroll, AnimatePresence } from "framer-
 import { Logo } from "./Logo";
 import { CountrySelector } from "./CountrySelector";
 import { LanguageSelector } from "./LanguageSelector";
+import { ThemeToggle } from "./ThemeToggle";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 import { MagneticButton } from "./MagneticButton";
 
 const LINKS = [
   { key: "work", href: "/work" },
-  { key: "services", href: "/#services" },
-  { key: "studio", href: "/#studio" },
+  { key: "services", href: "/services" },
+  { key: "studio", href: "/studio" },
 ] as const;
 
 export function Navigation() {
@@ -55,11 +56,12 @@ export function Navigation() {
           </ul>
 
           <div className="hidden items-center gap-5 lg:flex">
+            <ThemeToggle />
             <CountrySelector />
             <LanguageSelector />
             <MagneticButton cursor="talk">
               <Link
-                href="/#contact"
+                href="/contact"
                 className="rounded-full bg-signal px-4 py-2 font-mono text-xs font-medium uppercase tracking-wide text-ink transition-transform"
               >
                 {t.nav.contact} →
@@ -87,7 +89,7 @@ export function Navigation() {
 
 function MobileMenu({ onClose }: { onClose: () => void }) {
   const { t } = useLocale();
-  const items = [...LINKS.map((l) => ({ label: t.nav[l.key], href: l.href })), { label: t.nav.contact, href: "/#contact" }];
+  const items = [...LINKS.map((l) => ({ label: t.nav[l.key], href: l.href })), { label: t.nav.contact, href: "/contact" }];
 
   return (
     <motion.div
@@ -132,6 +134,7 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
       <div className="flex items-center justify-between border-t border-line py-6">
         <CountrySelector />
         <LanguageSelector />
+        <ThemeToggle />
       </div>
     </motion.div>
   );

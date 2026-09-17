@@ -1,6 +1,7 @@
 # Nexushouse
 
-The Nexushouse marketing site — a Next.js 16 (App Router) + TypeScript + Tailwind + Framer Motion build.
+The Nexushouse marketing site — a Next.js 16 (App Router) + TypeScript + Tailwind + Framer Motion +
+React Three Fiber build.
 
 ## Getting started
 
@@ -24,10 +25,24 @@ npm run lint
   `hreflang` tags are intentionally omitted — they'd be misleading without distinct localized routes. Adding
   real per-locale routing (e.g. via `next-intl` middleware) is the natural next step if full localization
   becomes a priority.
-- **Content data** — `src/lib/data/` (`projects.ts`, `services.ts`, `process.ts`). Nothing in here fabricates
-  metrics, testimonials, awards or team members, per the brief.
+- **Content data** — `src/lib/data/` (`projects.ts`, `services.ts`, `process.ts`, `beliefs.ts`). Nothing in
+  here fabricates metrics, testimonials, awards or team members, per the brief.
+- **Theme** — `src/lib/theme/`. Light/dark tokens live as CSS custom properties in `globals.css`
+  (`:root` = dark, `[data-theme="light"]` overrides), so existing Tailwind classes like `bg-ink`/`text-bone`
+  re-theme automatically. A blocking inline script (`THEME_INIT_SCRIPT`, injected in `layout.tsx`) stamps
+  `data-theme` before first paint to avoid a flash of the wrong theme; `ThemeProvider`/`useTheme` mirror it
+  into React state, and `ThemeToggle` (nav, mobile menu, footer) flips it. Defaults to system preference,
+  then remembers a manual choice in `localStorage`.
+- **3D hero** — `src/components/HeroScene.tsx` + `Hero3D.tsx`. A React Three Fiber scene (distorted
+  icosahedron core, wireframe shell, a ring of node-points, bloom post-processing) that reacts to scroll
+  (via the same Framer Motion scroll progress the 2D headline uses, read imperatively so they never fight)
+  and pointer position (tracked globally, since the canvas itself is `pointer-events: none`). Falls back to
+  the flat SVG line motif (`NexusField.tsx`) for `prefers-reduced-motion`, missing WebGL support, or small
+  viewports where the payoff doesn't justify the cost — nobody sees a blank hero.
 - **Sections** — one component per homepage section in `src/components/` (`Hero`, `Intro`, `Work`,
-  `Services`, `Studio`, `Process`, `Contact`), composed in `src/app/page.tsx`.
+  `Services`, `Studio`, `Process`, `Contact`), composed in `src/app/page.tsx`. `/services`, `/studio` and
+  `/contact` are also full standalone pages (deeper content, linked from nav) built from the same shared
+  data/components as their homepage teasers.
 
 ## Known placeholders to swap before launch
 

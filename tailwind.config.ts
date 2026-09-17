@@ -5,19 +5,23 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Semantic tokens backed by CSS variables so every existing bg-ink /
+        // text-bone / bg-signal usage automatically re-themes — see the
+        // `:root` / `[data-theme="light"]` blocks in globals.css. Names are
+        // legacy (ink/bone from the dark-first design) but now mean
+        // "page background" / "page foreground" / "accent" in either theme.
         ink: {
-          DEFAULT: "#0a0a0b",
-          soft: "#131315",
+          DEFAULT: "rgb(var(--color-bg) / <alpha-value>)",
+          soft: "rgb(var(--color-bg-soft) / <alpha-value>)",
         },
         bone: {
-          DEFAULT: "#f4f1ea",
-          dim: "#e8e3d8",
+          DEFAULT: "rgb(var(--color-fg) / <alpha-value>)",
         },
         signal: {
-          DEFAULT: "#d6ff3f",
-          dim: "#a8c930",
+          DEFAULT: "rgb(var(--color-accent) / <alpha-value>)",
+          dim: "rgb(var(--color-accent-dim) / <alpha-value>)",
         },
-        line: "rgba(244,241,234,0.14)",
+        line: "var(--color-border)",
       },
       fontFamily: {
         display: ["var(--font-display)", "sans-serif"],

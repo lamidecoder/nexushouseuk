@@ -4,9 +4,9 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useMarket } from "@/lib/market/MarketProvider";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
-import { NexusField } from "./NexusField";
+import { Hero3D } from "./Hero3D";
 
-const CAPABILITIES = ["Websites", "Products", "Software", "AI", "Experiences"];
+const CAPABILITIES = ["Websites", "Software", "Cloud", "Cybersecurity", "AI"];
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -33,7 +33,7 @@ export function Hero() {
   return (
     <section ref={containerRef} className="relative h-[280vh]">
       <div className="sticky top-0 flex h-screen flex-col overflow-hidden bg-ink px-6 pt-28 sm:px-10">
-        <NexusField />
+        <Hero3D scrollProgress={scrollYProgress} />
 
         <motion.div style={{ opacity: kickerO }} className="relative z-10 flex items-center justify-between font-mono text-xs uppercase tracking-widest text-bone/50">
           <span>{market.heroKicker}</span>

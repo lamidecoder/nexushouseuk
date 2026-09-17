@@ -3,7 +3,25 @@
 @tailwind utilities;
 
 :root {
+  /* Dark is the default/fallback (no-JS) theme. Values are R G B triplets so
+     Tailwind's rgb(var(...) / <alpha-value>) can apply opacity modifiers. */
+  --color-bg: 10 10 11;
+  --color-bg-soft: 19 19 21;
+  --color-fg: 244 241 234;
+  --color-accent: 214 255 63;
+  --color-accent-dim: 168 201 48;
+  --color-border: rgba(244, 241, 234, 0.14);
   color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --color-bg: 247 245 240;
+  --color-bg-soft: 236 232 223;
+  --color-fg: 17 17 19;
+  --color-accent: 92 115 0;
+  --color-accent-dim: 63 82 0;
+  --color-border: rgba(17, 17, 19, 0.12);
+  color-scheme: light;
 }
 
 * {
@@ -29,14 +47,15 @@ html {
 }
 
 body {
-  background: #0a0a0b;
-  color: #f4f1ea;
+  background: rgb(var(--color-bg));
+  color: rgb(var(--color-fg));
   overscroll-behavior-y: none;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 ::selection {
-  background: #d6ff3f;
-  color: #0a0a0b;
+  background: rgb(var(--color-accent));
+  color: rgb(var(--color-bg));
 }
 
 a,
@@ -45,7 +64,7 @@ button {
 }
 
 :focus-visible {
-  outline: 2px solid #d6ff3f;
+  outline: 2px solid rgb(var(--color-accent));
   outline-offset: 3px;
 }
 

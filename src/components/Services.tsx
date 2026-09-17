@@ -1,16 +1,19 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { SERVICES } from "@/lib/data/services";
 import { useMarket } from "@/lib/market/MarketProvider";
 import { SectionLabel } from "./SectionLabel";
 import { FadeUp } from "./RevealText";
 
+const HOMEPAGE_HIGHLIGHTS = ["01", "02", "03", "07", "08", "05"];
+
 export function Services() {
   const [active, setActive] = useState(0);
   const { market } = useMarket();
-  const allServices = [...SERVICES, ...market.extraServices];
+  const allServices = [...SERVICES.filter((s) => HOMEPAGE_HIGHLIGHTS.includes(s.index)), ...market.extraServices];
   const current = allServices[active];
 
   return (
@@ -21,7 +24,7 @@ export function Services() {
         </FadeUp>
         <FadeUp delay={0.05}>
           <h2 className="mt-6 max-w-2xl font-display text-fluid-xl font-medium leading-[0.98] tracking-tightest text-bone">
-            What we build.
+            What we do.
           </h2>
           <p className="mt-4 max-w-lg text-bone/60">{market.servicesIntro}</p>
         </FadeUp>
@@ -99,6 +102,16 @@ export function Services() {
             </AnimatePresence>
           </div>
         </div>
+
+        <FadeUp delay={0.1} className="mt-14 flex justify-center">
+          <Link
+            href="/services"
+            data-cursor="explore"
+            className="inline-flex items-center gap-3 rounded-full border border-bone/20 px-6 py-3 font-mono text-xs uppercase tracking-wide text-bone transition-colors hover:border-signal hover:text-signal"
+          >
+            View all services →
+          </Link>
+        </FadeUp>
       </div>
     </section>
   );
