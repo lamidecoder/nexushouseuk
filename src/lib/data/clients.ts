@@ -9,7 +9,9 @@ export interface Client {
  */
 export const CLIENTS: Client[] = [
   { name: "Withcent Global", slug: "withcent-global" },
+  { name: "Bookam", slug: "bookam" },
   { name: "DropOS", slug: "dropos" },
   { name: "Displyn", slug: "displyn" },
   { name: "Sophie Dallamore" },
+  { name: "Gele Glamzzz" },
 ];

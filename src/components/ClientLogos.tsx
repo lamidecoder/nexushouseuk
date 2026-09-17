@@ -30,6 +30,26 @@ function LogoMark({ name }: { name: string }) {
           DropOS
         </span>
       );
+    case "Bookam":
+      return (
+        <span className="flex items-center gap-2 font-display text-lg font-medium tracking-tight">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
+            <circle cx="8" cy="8" r="7.25" stroke="currentColor" strokeOpacity="0.3" />
+            <path d="M5.2 5.2a3 3 0 1 0 0 5.6" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+            <path d="M10.8 5.2a3 3 0 1 1 0 5.6" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+          </svg>
+          Bookam
+        </span>
+      );
+    case "Gele Glamzzz":
+      return (
+        <span className="flex items-center gap-2 font-display text-sm font-semibold uppercase tracking-[0.18em]">
+          <svg width="11" height="11" viewBox="0 0 10 10" fill="currentColor" aria-hidden>
+            <path d="M5 0l1 4 4 1-4 1-1 4-1-4-4-1 4-1z" />
+          </svg>
+          Gele Glamzzz
+        </span>
+      );
     case "Displyn":
       return (
         <span className="flex items-center gap-2 font-display text-lg font-medium tracking-tight">
