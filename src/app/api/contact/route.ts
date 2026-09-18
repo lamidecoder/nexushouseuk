@@ -20,6 +20,9 @@ export async function POST(request: Request) {
     market: body.market,
     projectType: body.projectType,
     email: body.email,
+    name: body.name,
+    heardFrom: body.heardFrom,
+    updates: Boolean(body.updates),
   });
 
   return NextResponse.json({ ok: true });
