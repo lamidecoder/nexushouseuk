@@ -19,6 +19,7 @@ export async function generateMetadata({
   return {
     title: insight.title,
     description: insight.dek,
+    alternates: { canonical: `/insights/${insight.slug}` },
   };
 }
 
@@ -30,8 +31,19 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
   const currentIndex = INSIGHTS.findIndex((i) => i.slug === slug);
   const next = INSIGHTS[(currentIndex + 1) % INSIGHTS.length];
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://nexushouse.com/" },
+      { "@type": "ListItem", position: 2, name: "Insights", item: "https://nexushouse.com/insights" },
+      { "@type": "ListItem", position: 3, name: insight.title, item: `https://nexushouse.com/insights/${insight.slug}` },
+    ],
+  };
+
   return (
     <article className="pt-32">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <div className="mx-auto max-w-2xl px-6 sm:px-10">
         <Link href="/insights" className="font-mono text-xs uppercase tracking-wide text-bone/50 hover:text-signal">
           ← All insights

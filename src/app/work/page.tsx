@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Work",
   description:
     "Selected work from Nexushouse: websites, digital products, mobile apps and platforms across education, bookings, commerce and creative industries.",
+  alternates: { canonical: "/work" },
 };
 
 export default function WorkPage() {

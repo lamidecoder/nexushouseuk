@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   title: "Studio",
   description:
     "Nexushouse is a team of designers, engineers, strategists and IT professionals. How we work, and what we believe about building things properly.",
+  alternates: { canonical: "/studio" },
 };
 
 export default function StudioPage() {

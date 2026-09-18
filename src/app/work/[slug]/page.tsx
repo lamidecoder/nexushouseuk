@@ -21,6 +21,7 @@ export async function generateMetadata({
   return {
     title: project.name,
     description: project.description,
+    alternates: { canonical: `/work/${project.slug}` },
     openGraph: {
       title: `${project.name} | Nexushouse`,
       description: project.description,
@@ -42,8 +43,19 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
   const currentIndex = PROJECTS.findIndex((p) => p.slug === slug);
   const next = PROJECTS[(currentIndex + 1) % PROJECTS.length];
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://nexushouse.com/" },
+      { "@type": "ListItem", position: 2, name: "Work", item: "https://nexushouse.com/work" },
+      { "@type": "ListItem", position: 3, name: project.name, item: `https://nexushouse.com/work/${project.slug}` },
+    ],
+  };
+
   return (
     <article className="pt-24">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <header className="px-6 pt-10 sm:px-10">
         <div className="mx-auto max-w-content">
           <Link

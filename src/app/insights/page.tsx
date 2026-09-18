@@ -6,6 +6,7 @@ import { FadeUp } from "@/components/RevealText";
 export const metadata: Metadata = {
   title: "Insights",
   description: "Notes on process, product and IT from the Nexushouse studio.",
+  alternates: { canonical: "/insights" },
 };
 
 export default function InsightsPage() {

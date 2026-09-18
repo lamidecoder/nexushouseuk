@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Legal & Privacy",
   description: "Privacy policy and terms of use for Nexushouse.",
+  alternates: { canonical: "/legal" },
 };
 
 const EFFECTIVE_DATE = "17 September 2026";
