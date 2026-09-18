@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { PROJECTS, getProjectBySlug } from "@/lib/data/projects";
 import { ProjectVisual } from "@/components/ProjectVisual";
+import { BlobFrame } from "@/components/BlobFrame";
+import { TagChip } from "@/components/TagChip";
 import { FadeUp } from "@/components/RevealText";
 import { SectionLabel } from "@/components/SectionLabel";
 
@@ -60,29 +62,50 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         <div className="mx-auto max-w-content">
           <Link
             href="/work"
+            data-cursor="explore"
             className="font-mono text-xs uppercase tracking-wide text-bone/50 hover:text-signal"
           >
             ← All work
           </Link>
-          <div className="mt-8 flex items-baseline gap-4">
-            <span className="font-mono text-sm text-bone/40">{project.index}</span>
-            <h1 className="font-display text-fluid-xl font-medium tracking-tightest text-bone">
-              {project.name}
-            </h1>
+          <div className="mt-8 flex items-center gap-3 font-mono text-xs uppercase tracking-wide text-bone/40">
+            <span>{project.index}</span>
+            <span className="h-1 w-1 rounded-full bg-bone/30" aria-hidden />
+            <span>{project.industry}</span>
           </div>
-          <p className="mt-4 max-w-xl text-bone/60">{project.oneLiner}</p>
+          <h1 className="mt-3 font-display text-fluid-xl font-medium leading-[0.98] tracking-tightest text-bone">
+            {project.name}
+          </h1>
+          <p className="mt-5 max-w-2xl font-display text-xl font-medium leading-snug tracking-tight text-bone/80 sm:text-2xl">
+            {project.headline}
+          </p>
         </div>
       </header>
 
       <FadeUp className="mt-12 px-6 sm:px-10">
-        <ProjectVisual project={project} className="mx-auto aspect-[16/9] w-full max-w-content rounded-2xl" />
+        <div className="relative mx-auto max-w-content">
+          <BlobFrame notch="tr" className="aspect-[16/9] w-full border border-line bg-ink-soft">
+            <ProjectVisual project={project} className="h-full w-full" />
+          </BlobFrame>
+          <div className="absolute right-4 top-4 flex flex-wrap justify-end gap-2 sm:right-6 sm:top-6">
+            {project.services.map((s) => (
+              <TagChip key={s}>{s}</TagChip>
+            ))}
+          </div>
+        </div>
       </FadeUp>
 
       <div className="mx-auto grid max-w-content gap-16 px-6 py-20 sm:px-10 lg:grid-cols-[240px_1fr] lg:gap-24">
         <dl className="flex flex-col gap-8 border-t border-line pt-8 lg:border-t-0 lg:pt-0">
           <Meta label="Client" value={project.name} />
           <Meta label="Industry" value={project.industry} />
-          <Meta label="Services" value={project.services.join(", ")} />
+          <div>
+            <dt className="font-mono text-[10px] uppercase tracking-widest text-bone/40">Services</dt>
+            <dd className="mt-3 flex flex-wrap gap-2">
+              {project.services.map((s) => (
+                <TagChip key={s}>{s}</TagChip>
+              ))}
+            </dd>
+          </div>
         </dl>
 
         <div className="flex flex-col gap-16">
@@ -108,8 +131,12 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           <section>
             <SectionLabel index="04" title="Gallery" />
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              <ProjectVisual project={project} className="aspect-square rounded-xl" />
-              <ProjectVisual project={project} className="aspect-square rounded-xl" />
+              <BlobFrame notch="bl" className="aspect-square border border-line bg-ink-soft">
+                <ProjectVisual project={project} className="h-full w-full" />
+              </BlobFrame>
+              <BlobFrame notch="tr" className="aspect-square border border-line bg-ink-soft">
+                <ProjectVisual project={project} className="h-full w-full" />
+              </BlobFrame>
             </div>
           </section>
         </div>
