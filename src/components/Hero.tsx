@@ -7,6 +7,7 @@ import { PROJECTS } from "@/lib/data/projects";
 import { ProjectVisual } from "./ProjectVisual";
 import { MagneticButton } from "./MagneticButton";
 import { VideoBubble } from "./VideoBubble";
+import { HeroBackgroundVideo } from "./HeroBackgroundVideo";
 
 const featured = PROJECTS[0];
 
@@ -31,6 +32,8 @@ export function Hero() {
         </motion.div>
 
         <div className="relative mt-6 min-h-[560px] overflow-visible rounded-[40px] bg-signal pb-28 sm:min-h-[640px] lg:min-h-[720px]">
+          <HeroBackgroundVideo />
+
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
