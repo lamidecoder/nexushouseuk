@@ -1,70 +1,113 @@
 "use client";
 
-import type { Service } from "@/lib/data/services";
+import Link from "next/link";
 import { SERVICES } from "@/lib/data/services";
 import { useMarket } from "@/lib/market/MarketProvider";
 import { FadeUp } from "./RevealText";
-import { SectionLabel } from "./SectionLabel";
 
-const GROUPS = ["Digital & Product", "IT & Infrastructure"] as const;
+interface ServiceRow {
+  index: string;
+  title: string;
+}
 
-function ServiceCard({ service, delay }: { service: Pick<Service, "index" | "title" | "description" | "tags">; delay: number }) {
+interface Discipline {
+  word: string;
+  intro: string;
+  services: ServiceRow[];
+}
+
+function byIndex(indexes: string[]): ServiceRow[] {
+  return indexes
+    .map((i) => SERVICES.find((s) => s.index === i))
+    .filter((s): s is (typeof SERVICES)[number] => Boolean(s))
+    .map(({ index, title }) => ({ index, title }));
+}
+
+const BASE_DISCIPLINES: Discipline[] = [
+  {
+    word: "Design",
+    intro: "Product and brand-level design work, done in-house by the same people who build it.",
+    services: byIndex(["06", "02"]),
+  },
+  {
+    word: "Build",
+    intro: "Engineering across web, mobile and custom software, matched to how the product actually needs to work.",
+    services: byIndex(["01", "03", "04", "05"]),
+  },
+  {
+    word: "Support",
+    intro: "The cloud, security and IT layer that keeps everything above it running once it's live.",
+    services: byIndex(["07", "08", "09", "10"]),
+  },
+];
+
+function ArrowChip() {
   return (
-    <FadeUp delay={delay} className="bg-ink p-8">
-      <span className="font-mono text-xs text-signal">{service.index}</span>
-      <h3 className="mt-4 font-display text-xl font-medium tracking-tighter text-bone">{service.title}</h3>
-      <p className="mt-3 text-sm leading-relaxed text-bone/60">{service.description}</p>
-      <div className="mt-5 flex flex-wrap gap-2">
-        {service.tags.map((tag) => (
-          <span
-            key={tag}
-            className="rounded-full border border-signal/30 px-3 py-1 font-mono text-[10px] uppercase tracking-wide text-signal"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
-    </FadeUp>
+    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-signal/40 text-signal transition-colors duration-200 group-hover:bg-signal group-hover:text-ink">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+        <path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </span>
   );
 }
 
-// Grid columns are picked per list so full rows always divide evenly.
-// An uneven remainder leaves dangling empty cells that show through as a
-// bare block of the container's gap-fill background.
-function columnsFor(count: number): string {
-  if (count % 3 === 0) return "sm:grid-cols-2 lg:grid-cols-3";
-  if (count % 2 === 0) return "sm:grid-cols-2";
-  return "sm:grid-cols-2 lg:grid-cols-3";
-}
-
-function ServiceGrid({ services }: { services: Pick<Service, "index" | "title" | "description" | "tags">[] }) {
+function DisciplineSection({ discipline, first }: { discipline: Discipline; first: boolean }) {
   return (
-    <div className={`mt-8 grid gap-px overflow-hidden rounded-2xl bg-line ${columnsFor(services.length)}`}>
-      {services.map((service, i) => (
-        <ServiceCard key={service.index} service={service} delay={i * 0.04} />
-      ))}
-    </div>
+    <section className={`border-t border-line py-16 sm:py-20 ${first ? "mt-16" : ""}`}>
+      <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1fr]">
+        <div>
+          <FadeUp>
+            <h2 className="font-display text-[clamp(3.5rem,10vw,7rem)] font-medium leading-[0.9] tracking-tightest text-bone">
+              {discipline.word}
+            </h2>
+          </FadeUp>
+          <FadeUp delay={0.05}>
+            <p className="mt-6 max-w-sm text-bone/60">{discipline.intro}</p>
+          </FadeUp>
+        </div>
+
+        <ul className="flex flex-col divide-y divide-line self-start">
+          {discipline.services.map((service, i) => (
+            <FadeUp key={service.index} delay={i * 0.04}>
+              <li>
+                <Link href="/contact" data-cursor="explore" className="group flex items-center justify-between gap-6 py-4">
+                  <span className="flex items-baseline gap-4">
+                    <span className="font-mono text-xs text-bone/40">{service.index}</span>
+                    <span className="font-display text-lg font-medium tracking-tight text-bone transition-colors group-hover:text-signal sm:text-xl">
+                      {service.title}
+                    </span>
+                  </span>
+                  <ArrowChip />
+                </Link>
+              </li>
+            </FadeUp>
+          ))}
+        </ul>
+      </div>
+    </section>
   );
 }
 
 export function ServicesPageContent() {
   const { market } = useMarket();
 
+  const disciplines: Discipline[] =
+    market.extraServices.length > 0
+      ? [
+          ...BASE_DISCIPLINES,
+          {
+            word: `Local: ${market.label}`,
+            intro: "Business registration and compliance available alongside the rest of the work.",
+            services: market.extraServices.map(({ index, title }) => ({ index, title })),
+          },
+        ]
+      : BASE_DISCIPLINES;
+
   return (
     <div className="mx-auto max-w-content px-6 pb-28 sm:px-10">
-      {GROUPS.map((group, gi) => (
-        <section key={group} className={gi === 0 ? "mt-8" : "mt-24"}>
-          <SectionLabel index={gi === 0 ? "01" : "02"} title={group} />
-          <ServiceGrid services={SERVICES.filter((s) => s.group === group)} />
-        </section>
+      {disciplines.map((discipline, i) => (
+        <DisciplineSection key={discipline.word} discipline={discipline} first={i === 0} />
       ))}
-
-      {market.extraServices.length > 0 && (
-        <section className="mt-24">
-          <SectionLabel index="03" title={`Local: ${market.label}`} />
-          <ServiceGrid services={market.extraServices} />
-        </section>
-      )}
     </div>
   );
 }
