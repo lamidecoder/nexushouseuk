@@ -11,6 +11,11 @@ export interface Project {
   approach: string;
   palette: [string, string, string];
   shape: "orbit" | "grid" | "wave" | "stack" | "aperture";
+  /** Real project screenshots. Falls back to the abstract SVG visual when absent. */
+  media?: {
+    hero: string;
+    gallery: string[];
+  };
 }
 
 export const PROJECTS: Project[] = [
@@ -30,6 +35,10 @@ export const PROJECTS: Project[] = [
       "A structured content system and a clean visual language, so the site reads as one institution rather than a collection of unrelated pages.",
     palette: ["#0a0a0b", "#d6ff3f", "#f4f1ea"],
     shape: "grid",
+    media: {
+      hero: "/work/withcent-global/desktop-hero.jpg",
+      gallery: [],
+    },
   },
   {
     slug: "bookam",
@@ -47,6 +56,10 @@ export const PROJECTS: Project[] = [
       "A focused interface built around the booking flow itself, with the supporting screens kept deliberately out of the way.",
     palette: ["#0a0a0b", "#5865ff", "#f4f1ea"],
     shape: "wave",
+    media: {
+      hero: "/work/bookam/property-detail.jpg",
+      gallery: ["/work/bookam/search-results.jpg", "/work/bookam/my-bookings.jpg"],
+    },
   },
   {
     slug: "displyn",
@@ -64,6 +77,10 @@ export const PROJECTS: Project[] = [
       "A component-driven design system that let the interface scale in capability while staying visually consistent.",
     palette: ["#0a0a0b", "#ff6a3d", "#f4f1ea"],
     shape: "stack",
+    media: {
+      hero: "/work/displyn/web-hero.jpg",
+      gallery: ["/work/displyn/app-onboarding.jpg", "/work/displyn/app-tasks.jpg"],
+    },
   },
   {
     slug: "dropos",
@@ -81,6 +98,10 @@ export const PROJECTS: Project[] = [
       "AI features integrated as assistance within existing workflows, rather than a separate tool operators have to learn.",
     palette: ["#0a0a0b", "#d6ff3f", "#1a1a1c"],
     shape: "orbit",
+    media: {
+      hero: "/work/dropos/desktop-hero.jpg",
+      gallery: ["/work/dropos/mobile-hero.jpg", "/work/dropos/mobile-features.jpg"],
+    },
   },
   {
     slug: "fzshotit",
@@ -98,6 +119,31 @@ export const PROJECTS: Project[] = [
       "Large-format image presentation with minimal interface, so attention stays on the photography.",
     palette: ["#0a0a0b", "#f4f1ea", "#8a8a8a"],
     shape: "aperture",
+    media: {
+      hero: "/work/fzshotit/desktop-hero.jpg",
+      gallery: ["/work/fzshotit/desktop-about.jpg", "/work/fzshotit/about-portfolio.jpg"],
+    },
+  },
+  {
+    slug: "gele-glamzzz",
+    index: "06",
+    name: "Gele Glamzzz",
+    oneLiner: "Beauty & Personal Styling",
+    headline: "A luxury styling brand presented the way its work looks",
+    industry: "Beauty & Personal Styling",
+    services: ["Brand Identity", "Web Design", "Web Development"],
+    description:
+      "Gele Glamzzz is a luxury gele and headwrap styling studio. The site gives its bridal, ceremony and stage work a presentation as considered as the styling itself.",
+    challenge:
+      "Give a highly visual, occasion-led styling business a site that reads as premium as the work it showcases, across weddings, stage and press moments.",
+    approach:
+      "A dark, editorial layout built to let full-bleed photography carry each story, with services and booking kept close at hand.",
+    palette: ["#120b06", "#c9a56a", "#f4ecdf"],
+    shape: "wave",
+    media: {
+      hero: "/work/gele-glamzzz/mobile-hero.jpg",
+      gallery: ["/work/gele-glamzzz/desktop-notable-work.jpg", "/work/gele-glamzzz/desktop-hero-alt.jpg"],
+    },
   },
 ];
 

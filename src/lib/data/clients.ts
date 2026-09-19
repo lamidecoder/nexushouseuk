@@ -13,5 +13,5 @@ export const CLIENTS: Client[] = [
   { name: "DropOS", slug: "dropos" },
   { name: "Displyn", slug: "displyn" },
   { name: "Sophie Dallamore" },
-  { name: "Gele Glamzzz" },
+  { name: "Gele Glamzzz", slug: "gele-glamzzz" },
 ];

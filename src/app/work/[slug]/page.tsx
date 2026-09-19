@@ -132,10 +132,10 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             <SectionLabel index="04" title="Gallery" />
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
               <BlobFrame notch="bl" className="aspect-square border border-line bg-ink-soft">
-                <ProjectVisual project={project} className="h-full w-full" />
+                <ProjectVisual project={project} src={project.media?.gallery[0] ?? null} className="h-full w-full" />
               </BlobFrame>
               <BlobFrame notch="tr" className="aspect-square border border-line bg-ink-soft">
-                <ProjectVisual project={project} className="h-full w-full" />
+                <ProjectVisual project={project} src={project.media?.gallery[1] ?? null} className="h-full w-full" />
               </BlobFrame>
             </div>
           </section>

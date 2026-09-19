@@ -1,10 +1,39 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import type { Project } from "@/lib/data/projects";
 
-export function ProjectVisual({ project, className = "" }: { project: Project; className?: string }) {
+/**
+ * Renders a real project screenshot when one exists. `src` picks a specific
+ * asset (e.g. a gallery slot); omit it to use the project's hero image, or
+ * pass `null` to force the abstract SVG art (an empty gallery slot).
+ */
+export function ProjectVisual({
+  project,
+  className = "",
+  src,
+}: {
+  project: Project;
+  className?: string;
+  src?: string | null;
+}) {
+  const image = src === null ? undefined : (src ?? project.media?.hero);
   const [bg, accent, tertiary] = project.palette;
+
+  if (image) {
+    return (
+      <div className={`relative overflow-hidden ${className}`} style={{ background: bg }}>
+        <Image
+          src={image}
+          alt={project.name}
+          fill
+          sizes="(min-width: 1024px) 800px, 100vw"
+          className="object-cover"
+        />
+      </div>
+    );
+  }
 
   return (
     <div className={`relative overflow-hidden ${className}`} style={{ background: bg }}>
