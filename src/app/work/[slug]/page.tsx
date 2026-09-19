@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { PROJECTS, getProjectBySlug } from "@/lib/data/projects";
 import { ProjectVisual } from "@/components/ProjectVisual";
 import { BlobFrame } from "@/components/BlobFrame";
@@ -72,9 +73,16 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             <span className="h-1 w-1 rounded-full bg-bone/30" aria-hidden />
             <span>{project.industry}</span>
           </div>
-          <h1 className="mt-3 font-display text-fluid-xl font-medium leading-[0.98] tracking-tightest text-bone">
-            {project.name}
-          </h1>
+          <div className="mt-3 flex items-center gap-4">
+            {project.logo && (
+              <span className="relative h-12 w-12 shrink-0 sm:h-16 sm:w-16">
+                <Image src={project.logo} alt="" fill className="object-contain" />
+              </span>
+            )}
+            <h1 className="font-display text-fluid-xl font-medium leading-[0.98] tracking-tightest text-bone">
+              {project.name}
+            </h1>
+          </div>
           <p className="mt-5 max-w-2xl font-display text-xl font-medium leading-snug tracking-tight text-bone/80 sm:text-2xl">
             {project.headline}
           </p>

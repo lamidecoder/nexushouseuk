@@ -16,6 +16,8 @@ export interface Project {
     hero: string;
     gallery: string[];
   };
+  /** Real client logo mark (transparent PNG), shown next to the case study title. */
+  logo?: string;
 }
 
 export const PROJECTS: Project[] = [
@@ -49,17 +51,18 @@ export const PROJECTS: Project[] = [
     industry: "Bookings & Reservations",
     services: ["Product Design", "Web App Development"],
     description:
-      "Bookam is a booking platform designed to make scheduling and reservations straightforward for both operators and their customers.",
+      "Bookam is an app that lets people book shortlet apartments, hotels and event centres around Lagos State, Nigeria, in a few taps instead of a back-and-forth.",
     challenge:
       "Turn a multi-step booking flow (availability, selection, confirmation) into something that feels like two taps, not a form.",
     approach:
       "A focused interface built around the booking flow itself, with the supporting screens kept deliberately out of the way.",
-    palette: ["#0a0a0b", "#5865ff", "#f4f1ea"],
+    palette: ["#0a0a0b", "#d3ae67", "#6f3568"],
     shape: "wave",
     media: {
       hero: "/work/bookam/property-detail.jpg",
       gallery: ["/work/bookam/search-results.jpg", "/work/bookam/settings-profile.jpg"],
     },
+    logo: "/work/bookam/logo.png",
   },
   {
     slug: "displyn",
