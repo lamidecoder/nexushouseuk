@@ -39,7 +39,7 @@ export const PROJECTS: Project[] = [
     shape: "grid",
     media: {
       hero: "/work/withcent-global/desktop-hero.jpg",
-      gallery: [],
+      gallery: ["/work/withcent-global/campus-life.jpg", "/work/withcent-global/partner-institutions.jpg"],
     },
   },
   {
@@ -166,7 +166,7 @@ export const PROJECTS: Project[] = [
     shape: "wave",
     media: {
       hero: "/work/jaythecreator/desktop-hero.jpg",
-      gallery: [],
+      gallery: ["/work/jaythecreator/portfolio-grid.jpg", "/work/jaythecreator/selected-moments.jpg"],
     },
   },
 ];
