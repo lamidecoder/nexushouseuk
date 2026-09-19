@@ -66,10 +66,10 @@ export default function LegalPage() {
           <p>
             Questions about this policy or your data can be sent to{" "}
             <a
-              href="mailto:hello@nexushouse.com"
+              href="mailto:nexushouseuk@gmail.com"
               className="text-bone underline decoration-line underline-offset-4 hover:text-signal"
             >
-              hello@nexushouse.com
+              nexushouseuk@gmail.com
             </a>
             .
           </p>

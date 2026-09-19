@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import { SERVICES } from "@/lib/data/services";
-import { useMarket } from "@/lib/market/MarketProvider";
 import { FadeUp } from "./RevealText";
 
 interface ServiceRow {
   index: string;
   title: string;
+  href?: string;
 }
 
 interface Discipline {
@@ -38,6 +38,14 @@ const BASE_DISCIPLINES: Discipline[] = [
     word: "Support",
     intro: "The cloud, security and IT layer that keeps everything above it running once it's live.",
     services: byIndex(["07", "08", "09", "10"]),
+  },
+  {
+    word: "Compliance",
+    intro: "CAC business registration and NDPR-aligned compliance documentation, for Nigerian businesses.",
+    services: [
+      { index: "11", title: "Business Registration", href: "/services/business-registration" },
+      { index: "12", title: "Compliance Documentation", href: "/services/business-registration" },
+    ],
   },
 ];
 
@@ -70,7 +78,11 @@ function DisciplineSection({ discipline, first }: { discipline: Discipline; firs
           {discipline.services.map((service, i) => (
             <FadeUp key={service.index} delay={i * 0.04}>
               <li>
-                <Link href="/contact" data-cursor="explore" className="group flex items-center justify-between gap-6 py-4">
+                <Link
+                  href={service.href ?? "/contact"}
+                  data-cursor="explore"
+                  className="group flex items-center justify-between gap-6 py-4"
+                >
                   <span className="flex items-baseline gap-4">
                     <span className="font-mono text-xs text-bone/40">{service.index}</span>
                     <span className="font-display text-lg font-medium tracking-tight text-bone transition-colors group-hover:text-signal sm:text-xl">
@@ -89,23 +101,9 @@ function DisciplineSection({ discipline, first }: { discipline: Discipline; firs
 }
 
 export function ServicesPageContent() {
-  const { market } = useMarket();
-
-  const disciplines: Discipline[] =
-    market.extraServices.length > 0
-      ? [
-          ...BASE_DISCIPLINES,
-          {
-            word: `Local: ${market.label}`,
-            intro: "Business registration and compliance available alongside the rest of the work.",
-            services: market.extraServices.map(({ index, title }) => ({ index, title })),
-          },
-        ]
-      : BASE_DISCIPLINES;
-
   return (
     <div className="mx-auto max-w-content px-6 pb-28 sm:px-10">
-      {disciplines.map((discipline, i) => (
+      {BASE_DISCIPLINES.map((discipline, i) => (
         <DisciplineSection key={discipline.word} discipline={discipline} first={i === 0} />
       ))}
     </div>

@@ -7,14 +7,11 @@ import { LanguageSelector } from "./LanguageSelector";
 import { ThemeToggle } from "./ThemeToggle";
 import { useMarket } from "@/lib/market/MarketProvider";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
+import { SITE_INSTAGRAM_URL, SITE_INSTAGRAM_HANDLE } from "@/lib/market/config";
 import { FadeUp } from "./RevealText";
 import { MagneticButton } from "./MagneticButton";
 
-const SOCIALS = [
-  { label: "Instagram", href: "https://instagram.com/nexushouse", icon: "instagram" },
-  { label: "LinkedIn", href: "https://linkedin.com/company/nexushouse", icon: "linkedin" },
-  { label: "X", href: "https://x.com/nexushouse", icon: "x" },
-] as const;
+const SOCIALS = [{ label: "Instagram", href: SITE_INSTAGRAM_URL, icon: "instagram" }] as const;
 
 function SocialIcon({ icon }: { icon: (typeof SOCIALS)[number]["icon"] }) {
   const paths: Record<(typeof SOCIALS)[number]["icon"], React.ReactNode> = {
@@ -25,14 +22,6 @@ function SocialIcon({ icon }: { icon: (typeof SOCIALS)[number]["icon"] }) {
         <circle cx="16.2" cy="7.8" r="0.9" fill="currentColor" />
       </>
     ),
-    linkedin: (
-      <>
-        <rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" strokeWidth="1.5" />
-        <circle cx="8.2" cy="8.5" r="1" fill="currentColor" />
-        <path d="M8.2 11v5M12 16v-3.2c0-1.5 2.5-1.7 2.5 0V16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      </>
-    ),
-    x: <path d="M5 5l14 14M19 5L5 19" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />,
   };
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
@@ -108,16 +97,14 @@ export function Footer() {
             <a href={`mailto:${market.contactEmail}`} className="text-bone/70 transition-colors hover:text-signal">
               {market.contactEmail}
             </a>
-            {market.showWhatsapp && market.whatsappNumber && (
-              <a
-                href={`https://wa.me/${market.whatsappNumber.replace(/\D/g, "")}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-bone/70 transition-colors hover:text-signal"
-              >
-                WhatsApp
-              </a>
-            )}
+            <a
+              href={SITE_INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-bone/70 transition-colors hover:text-signal"
+            >
+              {SITE_INSTAGRAM_HANDLE} (fastest reply)
+            </a>
             <div className="mt-2 flex flex-col items-start gap-4">
               <CountrySelector />
               <LanguageSelector />

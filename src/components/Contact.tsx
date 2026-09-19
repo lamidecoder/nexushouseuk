@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { useMarket } from "@/lib/market/MarketProvider";
+import { SITE_INSTAGRAM_URL, SITE_INSTAGRAM_HANDLE } from "@/lib/market/config";
 import { FAQS } from "@/lib/data/faqs";
 import { SectionLabel } from "./SectionLabel";
 import { FadeUp } from "./RevealText";
@@ -68,9 +69,18 @@ export function Contact() {
             <p className="mt-10 max-w-lg text-sm text-bone/50">
               Prefer not to use a form?{" "}
               <a href={`mailto:${market.contactEmail}`} className="text-bone/70 underline decoration-line underline-offset-4 hover:text-signal">
-                Email us directly at {market.contactEmail}
-              </a>
-              .
+                Email us at {market.contactEmail}
+              </a>{" "}
+              or{" "}
+              <a
+                href={SITE_INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-bone/70 underline decoration-line underline-offset-4 hover:text-signal"
+              >
+                message us on Instagram {SITE_INSTAGRAM_HANDLE}
+              </a>{" "}
+              for a faster reply.
             </p>
           </FadeUp>
 
@@ -207,16 +217,14 @@ export function Contact() {
                   </button>
                 </MagneticButton>
 
-                {market.showWhatsapp && market.whatsappNumber && (
-                  <a
-                    href={`https://wa.me/${market.whatsappNumber.replace(/\D/g, "")}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-mono text-sm uppercase tracking-wide text-bone/60 underline decoration-line underline-offset-4 hover:text-signal"
-                  >
-                    or WhatsApp us
-                  </a>
-                )}
+                <a
+                  href={SITE_INSTAGRAM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-mono text-sm uppercase tracking-wide text-bone/60 underline decoration-line underline-offset-4 hover:text-signal"
+                >
+                  or message us on Instagram
+                </a>
 
                 {status === "success" && <p className="text-sm text-signal">Thanks. We&apos;ll be in touch shortly.</p>}
                 {status === "error" && (

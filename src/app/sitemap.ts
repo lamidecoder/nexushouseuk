@@ -5,7 +5,16 @@ import { INSIGHTS } from "@/lib/data/insights";
 const SITE_URL = "https://nexushouse.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/work", "/services", "/studio", "/contact", "/insights", "/legal"].map((path) => ({
+  const staticRoutes = [
+    "",
+    "/work",
+    "/services",
+    "/services/business-registration",
+    "/studio",
+    "/contact",
+    "/insights",
+    "/legal",
+  ].map((path) => ({
     url: `${SITE_URL}${path}`,
     lastModified: new Date(),
   }));

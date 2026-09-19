@@ -6,23 +6,20 @@ export interface MarketConfig {
   flag: string;
   currency: string;
   legalFramework: string;
-  showWhatsapp: boolean;
-  showRegistrationServices: boolean;
   contactEmail: string;
-  whatsappNumber?: string;
   heroKicker: string;
   heroLines: string[];
   heroSub: string;
   servicesIntro: string;
-  extraServices: { index: string; title: string; description: string; tags: string[] }[];
   contactHeadline: string;
   contactSub: string;
 }
 
-/**
- * TODO: replace placeholder contact details before launch.
- * Everything below is content/config, not fabricated results, clients or metrics.
- */
+/** Real contact details, used site-wide regardless of market. */
+export const SITE_EMAIL = "nexushouseuk@gmail.com";
+export const SITE_INSTAGRAM_URL = "https://www.instagram.com/nexushouse.hq";
+export const SITE_INSTAGRAM_HANDLE = "@nexushouse.hq";
+
 export const MARKETS: Record<MarketId, MarketConfig> = {
   ng: {
     id: "ng",
@@ -30,30 +27,13 @@ export const MARKETS: Record<MarketId, MarketConfig> = {
     flag: "🇳🇬",
     currency: "NGN",
     legalFramework: "NDPR",
-    showWhatsapp: true,
-    showRegistrationServices: true,
-    contactEmail: "hello@nexushouse.com",
-    whatsappNumber: "+234 000 000 0000",
+    contactEmail: SITE_EMAIL,
     heroKicker: "Digital & IT solutions · Lagos & remote",
     heroLines: ["WE BUILD", "DIGITAL THINGS", "WORTH REMEMBERING"],
     heroSub:
       "Nexushouse is a team of designers, engineers and IT professionals building websites, software, cloud infrastructure and secure systems for Nigerian and international businesses, with CAC registration and compliance handled alongside where useful.",
     servicesIntro:
       "Digital products, cloud, cybersecurity and IT support, with business registration and compliance available as a local layer for Nigerian founders.",
-    extraServices: [
-      {
-        index: "11",
-        title: "Business Registration",
-        description: "CAC registration, business names and company incorporation.",
-        tags: ["CAC", "Business Name", "LTD"],
-      },
-      {
-        index: "12",
-        title: "Compliance Documentation",
-        description: "NDPR-aligned documentation and business compliance paperwork.",
-        tags: ["NDPR", "Compliance"],
-      },
-    ],
     contactHeadline: "HAVE AN IDEA?",
     contactSub: "Tell us what you're building. We'll reply within one working day.",
   },
@@ -63,16 +43,13 @@ export const MARKETS: Record<MarketId, MarketConfig> = {
     flag: "🇬🇧",
     currency: "GBP",
     legalFramework: "UK GDPR",
-    showWhatsapp: false,
-    showRegistrationServices: false,
-    contactEmail: "hello@nexushouse.com",
+    contactEmail: SITE_EMAIL,
     heroKicker: "Digital & IT solutions studio · UK & remote",
     heroLines: ["WE BUILD", "DIGITAL THINGS", "WORTH REMEMBERING"],
     heroSub:
       "Nexushouse is a team of designers, engineers and IT professionals partnering with UK startups and SMEs on websites and products, plus the cloud, security and IT support underneath them.",
     servicesIntro:
       "One team for digital product work and the IT infrastructure it runs on: design, engineering, cloud and cybersecurity together.",
-    extraServices: [],
     contactHeadline: "HAVE AN IDEA?",
     contactSub: "Tell us what you're building. We'll reply within one working day.",
   },
@@ -82,16 +59,13 @@ export const MARKETS: Record<MarketId, MarketConfig> = {
     flag: "🇪🇺",
     currency: "EUR",
     legalFramework: "GDPR",
-    showWhatsapp: false,
-    showRegistrationServices: false,
-    contactEmail: "hello@nexushouse.com",
+    contactEmail: SITE_EMAIL,
     heroKicker: "Digital & IT solutions studio · Europe & remote",
     heroLines: ["WE BUILD", "DIGITAL THINGS", "WORTH REMEMBERING"],
     heroSub:
       "Nexushouse is a team of designers, engineers and IT professionals partnering with European startups and scale-ups on websites and products, plus the cloud, security and IT support underneath them.",
     servicesIntro:
       "One team for digital product work and the IT infrastructure it runs on: design, engineering, cloud and cybersecurity together.",
-    extraServices: [],
     contactHeadline: "HAVE AN IDEA?",
     contactSub: "Tell us what you're building. We'll reply within one working day.",
   },
@@ -101,16 +75,13 @@ export const MARKETS: Record<MarketId, MarketConfig> = {
     flag: "🌎",
     currency: "USD",
     legalFramework: "applicable data protection law",
-    showWhatsapp: false,
-    showRegistrationServices: false,
-    contactEmail: "hello@nexushouse.com",
+    contactEmail: SITE_EMAIL,
     heroKicker: "A digital & IT solutions company",
     heroLines: ["WE BUILD", "DIGITAL THINGS", "WORTH REMEMBERING"],
     heroSub:
       "Nexushouse is a team of designers, engineers and IT professionals connecting strategy, design and technology: websites, software and AI products, plus the cloud, security and IT support underneath them.",
     servicesIntro:
       "One team for digital product work and the IT infrastructure it runs on: design, engineering, cloud and cybersecurity together.",
-    extraServices: [],
     contactHeadline: "HAVE AN IDEA?",
     contactSub: "Tell us what you're building. We'll reply within one working day.",
   },

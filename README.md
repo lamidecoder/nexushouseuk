@@ -52,9 +52,9 @@ npm run lint
 
 - **Logo**: `src/components/Logo.tsx` is a typographic placeholder wordmark. Replace its contents with the
   real mark; nav, footer and loader all consume it from this one place.
-- **Contact details**: `src/lib/market/config.ts` has placeholder email/WhatsApp values marked `TODO`.
 - **Contact form backend**: `src/app/api/contact/route.ts` validates and logs submissions but isn't wired
-  to an email/CRM provider yet.
+  to an email/CRM provider yet. Real contact details (email + Instagram) live in
+  `src/lib/market/config.ts`.
 - **Project imagery**: `src/components/ProjectVisual.tsx` generates bespoke abstract SVG compositions per
   project. Real screenshots for the five case studies (plus a new Jaygele project) are pending: this
   sandbox's network policy blocks fetching arbitrary external sites, so real imagery needs to be supplied

@@ -58,7 +58,7 @@ export const PROJECTS: Project[] = [
     shape: "wave",
     media: {
       hero: "/work/bookam/property-detail.jpg",
-      gallery: ["/work/bookam/search-results.jpg", "/work/bookam/my-bookings.jpg"],
+      gallery: ["/work/bookam/search-results.jpg", "/work/bookam/settings-profile.jpg"],
     },
   },
   {
@@ -142,7 +142,28 @@ export const PROJECTS: Project[] = [
     shape: "wave",
     media: {
       hero: "/work/gele-glamzzz/mobile-hero.jpg",
-      gallery: ["/work/gele-glamzzz/desktop-notable-work.jpg", "/work/gele-glamzzz/desktop-hero-alt.jpg"],
+      gallery: ["/work/gele-glamzzz/desktop-notable-work.jpg", "/work/gele-glamzzz/mobile-notable-work.jpg"],
+    },
+  },
+  {
+    slug: "jaythecreator",
+    index: "07",
+    name: "Jaythecreator",
+    oneLiner: "Beauty & Bridal Services",
+    headline: "A quieter, editorial home for wedding-day beauty work",
+    industry: "Beauty & Bridal Services",
+    services: ["Brand Identity", "Web Design", "Web Development"],
+    description:
+      "Jaythecreator offers weddings, bridal prep and asoebi styling across the UK and internationally. The site was built to give that work a calm, editorial presentation.",
+    challenge:
+      "Present bridal and wedding-day beauty work with the same quiet confidence as the styling itself, without it reading like a generic booking site.",
+    approach:
+      "A dark, full-bleed layout that lets a single strong image and a short line of copy carry the page, with services and booking kept simple.",
+    palette: ["#150c0c", "#b3455a", "#f4ece4"],
+    shape: "wave",
+    media: {
+      hero: "/work/jaythecreator/desktop-hero.jpg",
+      gallery: [],
     },
   },
 ];

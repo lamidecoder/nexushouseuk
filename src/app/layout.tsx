@@ -7,6 +7,7 @@ import { Footer } from "@/components/Footer";
 import { PageTransition } from "@/components/PageTransition";
 import { BlobDefs } from "@/components/BlobDefs";
 import { THEME_INIT_SCRIPT } from "@/lib/theme/ThemeProvider";
+import { SITE_INSTAGRAM_URL } from "@/lib/market/config";
 
 const display = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -72,11 +73,7 @@ const organizationJsonLd = {
   url: SITE_URL,
   description:
     "Nexushouse is a team of designers, engineers and IT professionals connecting strategy, design and technology: digital products and the IT infrastructure that runs them.",
-  sameAs: [
-    "https://instagram.com/nexushouse",
-    "https://linkedin.com/company/nexushouse",
-    "https://x.com/nexushouse",
-  ],
+  sameAs: [SITE_INSTAGRAM_URL],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
