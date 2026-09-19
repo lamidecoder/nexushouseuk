@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <div className="flex min-h-[80vh] flex-col items-center justify-center px-6 text-center">
       <p className="font-mono text-xs uppercase tracking-widest text-bone/50">404</p>
-      <h1 className="mt-6 font-display text-fluid-xl font-medium leading-[0.98] tracking-tightest text-bone">
+      <h1 className="reveal-heading mt-6 font-display text-fluid-xl font-medium leading-[0.98] tracking-tightest text-bone">
         Nothing here.
       </h1>
       <p className="mt-6 max-w-md text-bone/60">

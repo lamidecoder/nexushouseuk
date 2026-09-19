@@ -14,7 +14,7 @@ export default function InsightsPage() {
     <div className="pt-32">
       <div className="mx-auto max-w-content px-6 sm:px-10">
         <p className="font-mono text-xs uppercase tracking-widest text-bone/50">Insights</p>
-        <h1 className="mt-6 max-w-3xl font-display text-fluid-xl font-medium leading-[0.98] tracking-tightest text-bone">
+        <h1 className="reveal-heading mt-6 max-w-3xl font-display text-fluid-xl font-medium leading-[0.98] tracking-tightest text-bone">
           Notes on the work.
         </h1>
         <p className="mt-6 max-w-lg text-bone/60">

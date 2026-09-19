@@ -5,6 +5,7 @@ import { Providers } from "@/components/Providers";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { PageTransition } from "@/components/PageTransition";
+import { TransitionOverlay } from "@/components/TransitionOverlay";
 import { BlobDefs } from "@/components/BlobDefs";
 import { THEME_INIT_SCRIPT } from "@/lib/theme/ThemeProvider";
 import { SITE_INSTAGRAM_URL } from "@/lib/market/config";
@@ -99,6 +100,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </a>
         <div className="grain-overlay" aria-hidden />
         <BlobDefs />
+        <TransitionOverlay />
         <Providers>
           <Navigation />
           <main id="main-content">

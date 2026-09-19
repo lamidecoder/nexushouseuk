@@ -12,7 +12,7 @@ export default function LegalPage() {
   return (
     <div className="mx-auto max-w-2xl px-6 pb-24 pt-32 sm:px-10">
       <p className="font-mono text-xs uppercase tracking-widest text-bone/50">Legal</p>
-      <h1 className="mt-6 font-display text-fluid-lg font-medium tracking-tightest text-bone">
+      <h1 className="reveal-heading mt-6 font-display text-fluid-lg font-medium tracking-tightest text-bone">
         Legal &amp; Privacy
       </h1>
       <p className="mt-4 text-sm text-bone/50">Effective {EFFECTIVE_DATE}</p>

@@ -9,7 +9,6 @@ import { FAQS } from "@/lib/data/faqs";
 import { SectionLabel } from "./SectionLabel";
 import { FadeUp } from "./RevealText";
 import { MagneticButton } from "./MagneticButton";
-import { VideoBubble } from "./VideoBubble";
 
 const PROJECT_TYPES = ["Website", "App", "Software", "SaaS", "AI", "Digital Experience", "Something else"];
 const HEARD_FROM = ["Search", "Referral", "Social media", "LinkedIn", "Instagram", "Other"];
@@ -50,19 +49,13 @@ export function Contact() {
           <FadeUp>
             <SectionLabel index="08" title="Contact" />
           </FadeUp>
-          <FadeUp delay={0.05} className="mt-6 flex items-start justify-between gap-6">
-            <h2 className="font-display text-fluid-xl font-medium leading-[0.95] tracking-tightest text-bone">
+          <FadeUp delay={0.05}>
+            <h2 className="reveal-heading font-display text-fluid-xl font-medium leading-[0.95] tracking-tightest text-bone">
               {market.contactHeadline}
             </h2>
-            <div className="hidden shrink-0 sm:block">
-              <VideoBubble />
-            </div>
           </FadeUp>
           <FadeUp delay={0.08}>
             <p className="mt-4 max-w-md text-bone/60">{market.contactSub}</p>
-          </FadeUp>
-          <FadeUp delay={0.1} className="mt-2 sm:hidden">
-            <VideoBubble />
           </FadeUp>
 
           <FadeUp delay={0.12}>

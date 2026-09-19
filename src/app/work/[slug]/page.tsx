@@ -79,7 +79,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                 <Image src={project.logo} alt="" fill className="object-contain" />
               </span>
             )}
-            <h1 className="font-display text-fluid-xl font-medium leading-[0.98] tracking-tightest text-bone">
+            <h1 className="reveal-heading font-display text-fluid-xl font-medium leading-[0.98] tracking-tightest text-bone">
               {project.name}
             </h1>
           </div>

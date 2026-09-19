@@ -35,7 +35,7 @@ export default function BusinessRegistrationPage() {
       <div className="mx-auto max-w-content px-6 sm:px-10">
         <SectionLabel index="NG" title="Business Registration & Compliance" />
         <div className="mt-6 grid grid-cols-1 gap-8 lg:grid-cols-[1fr_1fr] lg:items-start lg:gap-16">
-          <h1 className="font-display text-fluid-xl font-medium leading-[0.98] tracking-tightest text-bone">
+          <h1 className="reveal-heading font-display text-fluid-xl font-medium leading-[0.98] tracking-tightest text-bone">
             Getting the business set up legally, not just the website.
           </h1>
           <p className="text-lg text-bone/60">

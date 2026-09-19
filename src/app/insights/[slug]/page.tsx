@@ -54,7 +54,7 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
           <span>{insight.readingTime}</span>
         </div>
 
-        <h1 className="mt-6 font-display text-fluid-lg font-medium leading-[1.05] tracking-tightest text-bone">
+        <h1 className="reveal-heading mt-6 font-display text-fluid-lg font-medium leading-[1.05] tracking-tightest text-bone">
           {insight.title}
         </h1>
         <p className="mt-6 text-lg text-bone/60">{insight.dek}</p>

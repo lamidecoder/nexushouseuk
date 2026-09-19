@@ -6,7 +6,6 @@ import { useMarket } from "@/lib/market/MarketProvider";
 import { PROJECTS } from "@/lib/data/projects";
 import { ProjectVisual } from "./ProjectVisual";
 import { MagneticButton } from "./MagneticButton";
-import { VideoBubble } from "./VideoBubble";
 import { HeroBackgroundVideo } from "./HeroBackgroundVideo";
 
 const featured = PROJECTS[0];
@@ -41,7 +40,7 @@ export function Hero() {
             style={{ clipPath: "url(#notch-br)" }}
             className="relative z-20 max-w-md bg-ink px-8 pb-20 pt-10 sm:max-w-xl sm:px-12 sm:pb-24 sm:pt-12"
           >
-            <h1 className="font-display text-fluid-lg font-medium leading-[0.98] tracking-tightest text-bone sm:text-fluid-xl">
+            <h1 className="reveal-heading font-display text-fluid-lg font-medium leading-[0.98] tracking-tightest text-bone sm:text-fluid-xl">
               {market.heroLines[0]}
               <br />
               {market.heroLines[1]}
@@ -78,15 +77,6 @@ export function Hero() {
                 View project →
               </Link>
             </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-            className="absolute bottom-0 left-6 z-20 translate-y-1/2 sm:left-10"
-          >
-            <VideoBubble />
           </motion.div>
         </div>
 
