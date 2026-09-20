@@ -110,13 +110,17 @@ html.has-custom-cursor button {
    as DiagonalWipe.tsx, so a navigation's wipe and the new page's headline
    read as one gesture rather than two unrelated effects. Pure CSS so it
    auto-replays whenever the element remounts (every route change) with no
-   per-page JS wiring; the delay times it to start as the wipe clears. */
+   per-page JS wiring; the delay times it to start as the wipe clears. The
+   `to` state must resolve to a full, uncut rectangle: the diagonal is only
+   the entrance motion, never a permanent clip, since a resting cut reliably
+   slices the tail off single-line headings (short page titles, project
+   names) rather than just nicking a corner. */
 @keyframes reveal-heading {
   from {
     clip-path: polygon(0% 0%, 0% 0%, -20% 100%, -20% 100%);
   }
   to {
-    clip-path: polygon(0% 0%, 100% 0%, 80% 100%, 0% 100%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
   }
 }
 .reveal-heading {
@@ -125,31 +129,6 @@ html.has-custom-cursor button {
 }
 @media (prefers-reduced-motion: reduce) {
   .reveal-heading {
-    animation: none;
-  }
-}
-
-/* Ambient drift for AmbientNotches.tsx: a plain CSS loop (same proven
-   pattern as .animate-marquee above) rather than a JS animation library,
-   since a purely decorative always-on loop has no need for one and this
-   is simpler to get right. Each instance sets its own --drift-* custom
-   properties and duration/delay via inline style. */
-@keyframes ambient-drift {
-  from {
-    transform: translate(var(--drift-x-from, 0px), var(--drift-y-from, 0px));
-  }
-  to {
-    transform: translate(var(--drift-x-to, 0px), var(--drift-y-to, 0px));
-  }
-}
-.animate-ambient-drift {
-  animation-name: ambient-drift;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-@media (prefers-reduced-motion: reduce) {
-  .animate-ambient-drift {
     animation: none;
   }
 }

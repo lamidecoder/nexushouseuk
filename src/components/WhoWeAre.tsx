@@ -1,10 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { SectionLabel } from "./SectionLabel";
 import { FadeUp } from "./RevealText";
 import { MagneticButton } from "./MagneticButton";
-import { AmbientNotches } from "./AmbientNotches";
+import { BlobFrame } from "./BlobFrame";
 
 export function WhoWeAre() {
   return (
@@ -39,7 +40,15 @@ export function WhoWeAre() {
           </FadeUp>
         </div>
 
-        <AmbientNotches className="h-56 w-full lg:h-72" />
+        <BlobFrame notch="tr" className="relative h-56 w-full bg-ink-soft lg:h-72">
+          <Image
+            src="/studio/who-we-are.jpg"
+            alt="Team members collaborating around a table"
+            fill
+            sizes="(min-width: 1024px) 320px, 100vw"
+            className="object-cover"
+          />
+        </BlobFrame>
       </div>
     </section>
   );

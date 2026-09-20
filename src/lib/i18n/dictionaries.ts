@@ -8,7 +8,7 @@ export const LOCALES: { id: Locale; label: string }[] = [
 ];
 
 export interface Dictionary {
-  nav: { work: string; services: string; studio: string; contact: string };
+  nav: { home: string; work: string; services: string; studio: string; contact: string };
   cta: { talk: string; viewProject: string; explore: string; drag: string };
   hero: { scroll: string };
   yourExperience: string;
@@ -16,7 +16,7 @@ export interface Dictionary {
 }
 
 const en: Dictionary = {
-  nav: { work: "Work", services: "Services", studio: "Studio", contact: "Contact" },
+  nav: { home: "Home", work: "Work", services: "Services", studio: "Studio", contact: "Contact" },
   cta: { talk: "Let's talk", viewProject: "View project", explore: "Explore", drag: "Drag" },
   hero: { scroll: "Scroll" },
   yourExperience: "Your experience",
@@ -24,7 +24,7 @@ const en: Dictionary = {
 };
 
 const fr: Dictionary = {
-  nav: { work: "Travaux", services: "Services", studio: "Studio", contact: "Contact" },
+  nav: { home: "Accueil", work: "Travaux", services: "Services", studio: "Studio", contact: "Contact" },
   cta: { talk: "Discutons", viewProject: "Voir le projet", explore: "Explorer", drag: "Glisser" },
   hero: { scroll: "Défiler" },
   yourExperience: "Votre expérience",
@@ -32,7 +32,7 @@ const fr: Dictionary = {
 };
 
 const es: Dictionary = {
-  nav: { work: "Trabajo", services: "Servicios", studio: "Estudio", contact: "Contacto" },
+  nav: { home: "Inicio", work: "Trabajo", services: "Servicios", studio: "Estudio", contact: "Contacto" },
   cta: { talk: "Hablemos", viewProject: "Ver proyecto", explore: "Explorar", drag: "Arrastrar" },
   hero: { scroll: "Desplázate" },
   yourExperience: "Tu experiencia",
@@ -40,7 +40,7 @@ const es: Dictionary = {
 };
 
 const de: Dictionary = {
-  nav: { work: "Arbeiten", services: "Leistungen", studio: "Studio", contact: "Kontakt" },
+  nav: { home: "Start", work: "Arbeiten", services: "Leistungen", studio: "Studio", contact: "Kontakt" },
   cta: { talk: "Lass uns reden", viewProject: "Projekt ansehen", explore: "Entdecken", drag: "Ziehen" },
   hero: { scroll: "Scrollen" },
   yourExperience: "Deine Erfahrung",

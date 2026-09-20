@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/lib/theme/ThemeProvider";
 import { Cursor } from "./Cursor";
 import { Loader } from "./Loader";
 import { SmoothScroll } from "./SmoothScroll";
+import { BackToTop } from "./BackToTop";
 
 const SESSION_KEY = "nexus-loaded";
 
@@ -37,6 +38,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
           {showLoader && <Loader onDone={() => setShowLoader(false)} />}
           <SmoothScroll />
           <Cursor />
+          <BackToTop />
           {children}
         </LocaleProvider>
       </MarketProvider>

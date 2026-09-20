@@ -89,7 +89,11 @@ export function Navigation() {
 
 function MobileMenu({ onClose }: { onClose: () => void }) {
   const { t } = useLocale();
-  const items = [...LINKS.map((l) => ({ label: t.nav[l.key], href: l.href })), { label: t.nav.contact, href: "/contact" }];
+  const items = [
+    { label: t.nav.home, href: "/" },
+    ...LINKS.map((l) => ({ label: t.nav[l.key], href: l.href })),
+    { label: t.nav.contact, href: "/contact" },
+  ];
 
   return (
     <motion.div
@@ -100,7 +104,9 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
       className="fixed inset-0 z-[80] flex flex-col bg-ink px-6 pt-6"
     >
       <div className="flex items-center justify-between">
-        <Logo className="text-bone" />
+        <Link href="/" onClick={onClose} data-cursor="explore">
+          <Logo className="text-bone" />
+        </Link>
         <button
           type="button"
           onClick={onClose}

@@ -30,7 +30,7 @@ export function Hero() {
           Hiya, we&apos;re Nexushouse <span aria-hidden>👋</span>
         </motion.div>
 
-        <div className="relative mt-6 min-h-[560px] overflow-visible rounded-[40px] bg-signal pb-28 sm:min-h-[640px] lg:min-h-[720px]">
+        <div className="relative mt-6 min-h-[420px] overflow-visible rounded-[40px] bg-signal pb-10 sm:min-h-[640px] sm:pb-28 lg:min-h-[720px]">
           <HeroBackgroundVideo />
 
           <motion.div
@@ -38,7 +38,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
             style={{ clipPath: "url(#notch-br)" }}
-            className="relative z-20 max-w-md bg-ink px-8 pb-20 pt-10 sm:max-w-xl sm:px-12 sm:pb-24 sm:pt-12"
+            className="relative z-20 max-w-md bg-ink px-8 pb-10 pt-10 sm:max-w-xl sm:px-12 sm:pb-24 sm:pt-12"
           >
             <h1 className="reveal-heading font-display text-fluid-lg font-medium leading-[0.98] tracking-tightest text-bone sm:text-fluid-xl">
               {market.heroLines[0]}
@@ -59,7 +59,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
-            className="absolute right-4 top-[38%] z-10 w-[78%] max-w-md -translate-y-1/2 overflow-hidden rounded-2xl bg-bone shadow-2xl ring-1 ring-black/10 sm:right-10 sm:top-1/2 sm:w-[52%]"
+            className="relative z-10 hidden overflow-hidden rounded-2xl bg-bone shadow-2xl ring-1 ring-black/10 sm:absolute sm:block sm:right-10 sm:top-1/2 sm:w-[36%] sm:max-w-xs sm:-translate-y-1/2"
           >
             <div className="aspect-[16/10]">
               <ProjectVisual project={featured} className="h-full w-full" />

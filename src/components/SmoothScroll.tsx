@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import Lenis from "lenis";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { lenisRef } from "@/lib/lenisInstance";
 
 /**
  * Inertia-based smooth scrolling. Skipped entirely for reduced-motion
@@ -20,6 +21,7 @@ export function SmoothScroll() {
       easing: (t: number) => 1 - Math.pow(1 - t, 3),
       smoothWheel: true,
     });
+    lenisRef.current = lenis;
 
     let frame = 0;
     function raf(time: number) {
@@ -30,6 +32,7 @@ export function SmoothScroll() {
 
     return () => {
       cancelAnimationFrame(frame);
+      lenisRef.current = null;
       lenis.destroy();
     };
   }, [reducedMotion]);
